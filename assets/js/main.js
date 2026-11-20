@@ -194,15 +194,12 @@
     VISIBLE.filter((p) => total(p, T_PHOTOS) > 0 && total(p, T_VISUELS) === 0)
       .map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map((x) => x.p)
       .forEach((p) => {
-      if (p.key === "tennis-de-table") {
+      if (p.folders && hasParts(p)) {
+        // un seul dossier par projet (tous les tournois, tous les matchs LMTT)
         const n = groupsOf(p).length;
-        items.push({ key: p.key, part: "", src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: "Tournois",
-          desc: `${n} tournois · ${plural(T_PHOTOS, total(p, T_PHOTOS))}` });
-      } else if (p.folders && hasParts(p)) {
-        groupsOf(p).filter((g) => count(g, T_PHOTOS) > 0).forEach((g) => items.push({
-          key: p.key, part: g.key, src: `${g.dir}/cover.jpg${CV}`, kind: g.kind || p.kind, title: g.title,
-          desc: `${plural(T_PHOTOS, count(g, T_PHOTOS))} · ${p.short || p.title}`,
-        }));
+        items.push({ key: p.key, part: "", src: `${base(p)}/cover.jpg${CV}`, kind: p.kind,
+          title: p.key === "tennis-de-table" ? "Tournois" : p.title,
+          desc: `${n} ${p.partsLabel || "dossiers"} · ${plural(T_PHOTOS, total(p, T_PHOTOS))}` });
       } else {
         items.push({ key: p.key, part: "", src: `${base(p)}/${p.photoCover || "cover.jpg"}${CV}`, kind: p.kind, title: p.title,
           desc: `${plural(T_PHOTOS, total(p, T_PHOTOS))}${p.desc ? " · " + p.desc : ""}` });
