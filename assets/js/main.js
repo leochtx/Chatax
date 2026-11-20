@@ -47,7 +47,17 @@
     const y = window.scrollY;
     nav.classList.toggle("is-scrolled", y > 40);
     fab.classList.toggle("is-visible", y > window.innerHeight * 0.8 && !contactVisible);
+    if (totop) totop.classList.toggle("is-visible", y > window.innerHeight * 0.6);
   };
+  // flèche « remonter en haut »
+  const totop = $("#totop");
+  if (totop) totop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  // flèche « Retour » : revient à la page précédente du site, sinon à l'accueil
+  $$("[data-back]").forEach((a) => a.addEventListener("click", (e) => {
+    let fromSite = false;
+    try { fromSite = document.referrer && new URL(document.referrer).origin === location.origin; } catch (_) {}
+    if (fromSite && history.length > 1) { e.preventDefault(); history.back(); }
+  }));
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
   if ("IntersectionObserver" in window) {
