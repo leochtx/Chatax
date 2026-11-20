@@ -27,7 +27,31 @@
 window.CHATAX_COVERS_VERSION = 4;
 
 window.CHATAX_PROJECTS = [
-  /* ---------------- ÉVÉNEMENTS ---------------- */
+  /* ---------------- ÉVÉNEMENTS (du plus récent au plus ancien) ---------------- */
+  {
+    key: "tennis-de-table",
+    category: "event",
+    desc: "Reportages photo sur des tournois de tennis de table, en France et en Belgique.",
+    title: "Tournois de tennis de table",
+    short: "Tournois",
+    kind: "Photos",
+    folders: true,
+    partsLabel: "tournois",
+    parts: [
+      { key: "compiegne", title: "Tournoi de Compiègne", kind: "Tournoi · Novembre 2026", photos: 6 },
+      { key: "saint-laurent-blangy", title: "Tournoi de Saint-Laurent-Blangy", kind: "Tournoi · Octobre 2026", photos: 23 },
+      { key: "nieppe", title: "Tournoi de Nieppe", kind: "Tournoi · Septembre 2026", photos: 15 },
+      { key: "wattignies", title: "Tournoi de Wattignies", kind: "Tournoi · Août 2026", photos: 21 },
+      { key: "merelbeke", title: "Tournoi de Merelbeke", kind: "Tournoi · Belgique · Août 2026", photos: 9 },
+      { key: "wenduine", title: "Tournoi de Wenduine", kind: "Tournoi · Belgique · Août 2026", photos: 9 },
+      { key: "flers", title: "Tournoi de Flers", kind: "Tournoi · Mai 2026", photos: 18 },
+      { key: "grand-quevilly", title: "Tournoi international de Grand-Quevilly", kind: "Tournoi international · Mai 2026", photos: 14 },
+      { key: "petit-quevilly", title: "Tournoi de Petit-Quevilly", kind: "Tournoi · Mai 2026", photos: 17 },
+      { key: "laigle", title: "Tournoi de L'Aigle", kind: "Tournoi · Avril 2026", photos: 16 },
+      { key: "beauvais", title: "Tournoi de Beauvais", kind: "Tournoi · Janvier 2026", photos: 17 },
+    ],
+  },
+
   {
     key: "lisieux-24h",
     photoCover: "cover-photo.jpg",
@@ -64,6 +88,27 @@ window.CHATAX_PROJECTS = [
       ],
     },
   },
+
+  {
+    key: "cdf-laval-2026",
+    photoCover: "cover-photo.jpg",
+    category: "event",
+    desc: "Reportage photo aux championnats de France de tennis de table, à Laval.",
+    title: "Championnats de France · Laval 2026",
+    kind: "Tennis de table · Photos",
+    photos: 71,
+  },
+
+  {
+    key: "cdf-universitaires",
+    photoCover: "cover-photo.jpg",
+    category: "event",
+    desc: "Reportage photo aux championnats de France universitaires 2026.",
+    title: "Championnats de France universitaires 2026",
+    kind: "Tennis de table · Photos",
+    photos: 25,
+  },
+
   {
     key: "spo-rouen",
     category: "event",
@@ -93,49 +138,60 @@ window.CHATAX_PROJECTS = [
       ],
     },
   },
+
+  /* ---------------- ACCOMPAGNEMENT (du plus récent au plus ancien) ---------------- */
   {
-    key: "cdf-laval-2026",
-    photoCover: "cover-photo.jpg",
-    category: "event",
-    desc: "Reportage photo aux championnats de France de tennis de table, à Laval.",
-    title: "Championnats de France · Laval 2026",
-    kind: "Tennis de table · Photos",
-    photos: 71,
-  },
-  {
-    key: "cdf-universitaires",
-    photoCover: "cover-photo.jpg",
-    category: "event",
-    desc: "Reportage photo aux championnats de France universitaires 2026.",
-    title: "Championnats de France universitaires 2026",
-    kind: "Tennis de table · Photos",
-    photos: 25,
-  },
-  {
-    key: "tennis-de-table",
-    category: "event",
-    desc: "Reportages photo sur des tournois de tennis de table, en France et en Belgique.",
-    title: "Tournois de tennis de table",
-    short: "Tournois",
-    kind: "Photos",
+    key: "lmtt",
+    category: "long",
+    desc: "Reportages photo des matchs du club, jusqu'en Ligue des champions.",
+    title: "Lille Métropole Tennis de Table",
+    short: "LMTT",
+    kind: "Club de tennis de table",
     folders: true,
-    partsLabel: "tournois",
+    partsLabel: "matchs",
     parts: [
-      { key: "saint-laurent-blangy", title: "Tournoi de Saint-Laurent-Blangy", kind: "Tournoi · 2026", photos: 23 },
-      { key: "wattignies", title: "Tournoi de Wattignies", kind: "Tournoi · 2026", photos: 21 },
-      { key: "flers", title: "Tournoi de Flers", kind: "Tournoi", photos: 18 },
-      { key: "beauvais", title: "Tournoi de Beauvais", kind: "Tournoi · 2026", photos: 17 },
-      { key: "petit-quevilly", title: "Tournoi de Petit-Quevilly", kind: "Tournoi", photos: 17 },
-      { key: "laigle", title: "Tournoi de L'Aigle", kind: "Tournoi", photos: 16 },
-      { key: "nieppe", title: "Tournoi de Nieppe", kind: "Tournoi · 2026", photos: 15 },
-      { key: "grand-quevilly", title: "Tournoi international de Grand-Quevilly", kind: "Tournoi international", photos: 14 },
-      { key: "merelbeke", title: "Tournoi de Merelbeke", kind: "Tournoi · Belgique", photos: 9 },
-      { key: "wenduine", title: "Tournoi de Wenduine", kind: "Tournoi · Belgique · 2026", photos: 9 },
-      { key: "compiegne", title: "Tournoi de Compiègne", kind: "Tournoi", photos: 6 },
+      { key: "vs-saarbrucken", title: "LMTT vs Saarbrücken", kind: "Ligue des champions · 13.11.2026", photos: 53 },
+      { key: "vs-amiens", title: "LMTT vs Amiens", kind: "Match · 22.09.2026", photos: 82 },
     ],
   },
 
-  /* ---------------- PROJETS AU LONG COURS ---------------- */
+  {
+    key: "padelshot-barentin",
+    category: "long",
+    desc: "Stage de Licence 2 : rendre visible un complexe de padel tout juste ouvert.",
+    title: "Padelshot Rouen-Barentin",
+    kind: "Stage · Licence 2",
+    photos: 16, visuels: 12, videos: 3,
+    story: {
+      lead: "Deux mois de stage dans un complexe de padel récemment ouvert, avec une mission claire : le rendre visible face à la concurrence locale.",
+      facts: [
+        { k: "Cadre", v: "Stage de Licence 2 Gestion, IAE Rouen Normandie" },
+        { k: "Période", v: "Avril – mai 2026" },
+        { k: "Rôle", v: "Gestion, communication & marketing" },
+      ],
+      text: [
+        "Le Padelshot Rouen-Barentin venait d'ouvrir et devait se faire une place à côté de clubs déjà installés. J'ai pris en charge les contenus du club : photos des joueurs sur les terrains, affiches d'événements et publications régulières sur les réseaux sociaux.",
+        "Une partie importante du stage a porté sur le lancement d'une nouvelle activité : l'espace tennis de table. Il a fallu tout expliquer simplement, des tarifs au matériel disponible, en passant par la réservation en ligne et le groupe WhatsApp des joueurs.",
+        "En parallèle, j'étais sur le terrain au quotidien : accueil, relation client et vente au bar, en restauration et à la boutique, ainsi que l'animation des heures creuses.",
+      ],
+      missions: [
+        "Photos des joueurs et des événements du club",
+        "Affiches et visuels pour les réseaux sociaux",
+        "Lancement et promotion de l'espace tennis de table",
+        "Vidéos courtes pour Instagram",
+        "Accueil, vente et animation des heures creuses",
+      ],
+      illustrations: [
+        { src: "story/arrivee.jpg", cap: "Arrivée au Padelshot, avril 2026" },
+        { src: "visuels/006.jpg", cap: "Affiche d'événement" },
+        { src: "visuels/007.jpg", cap: "Lancement de l'espace ping" },
+        { src: "photos/011.jpg", cap: "Photo sur les terrains" },
+        { src: "visuels/010.jpg", cap: "Comment réserver" },
+        { src: "visuels/012.jpg", cap: "Horaires de l'espace ping" },
+      ],
+    },
+  },
+
   {
     key: "alcl-grand-quevilly",
     category: "long",
@@ -175,6 +231,75 @@ window.CHATAX_PROJECTS = [
       ],
     },
   },
+
+  {
+    key: "boumassa",
+    // playlist « dernières vidéos » de la chaîne : se met à jour toute seule à chaque nouvelle vidéo
+    youtubeUploads: "UUuFXRCHIN-U5LYn8ZAztiqw",
+    category: "long",
+    desc: "Vlogs de tournois en France et en Belgique, lancés entre amis.",
+    title: "Boumassa",
+    kind: "Chaîne YouTube",
+    visuels: 17,
+    link: { href: "https://www.youtube.com/@BOUMASSA_Normandie", label: "Voir la chaîne YouTube" },
+    story: {
+      lead: "Un format de vlogs lancé entre amis pour raconter les tournois de tennis de table de l'intérieur, en France et en Belgique.",
+      facts: [
+        { k: "Lancement", v: "Août 2025" },
+        { k: "Format", v: "Vlogs de tournois & Shorts" },
+        { k: "Partenaire", v: "Multiset Sport" },
+      ],
+      text: [
+        "Boumassa suit les week-ends de tournoi tels qu'ils se passent : Wattignies, Nieppe, Lisieux, et jusqu'en Belgique à Wenduine ou Merelbeke. On filme, on monte et on raconte, du premier match au retour en voiture.",
+        "La chaîne compte une quarantaine de vidéos, entre des formats longs qui suivent un tournoi du début à la fin et des Shorts, pour près de 600 abonnés. Chaque vidéo a sa miniature, pensée pour donner envie de cliquer en une seconde.",
+        "Le projet est sponsorisé par Multiset Sport.",
+      ],
+      missions: [
+        "Tournage sur les tournois",
+        "Montage des vlogs et des Shorts",
+        "Création des miniatures YouTube",
+      ],
+      illustrations: [
+        { src: "visuels/001.jpg", cap: "Les 24 h de Lisieux" },
+        { src: "visuels/002.jpg", cap: "Wenduine, premier tournoi belge" },
+        { src: "visuels/004.jpg", cap: "Merelbeke" },
+        { src: "visuels/013.jpg", cap: "Open de Lille" },
+      ],
+    },
+  },
+
+  {
+    key: "multiset-sport",
+    category: "long",
+    desc: "Visuels et supports pour une boutique spécialisée, partenaire de Boumassa.",
+    title: "Multiset Sport",
+    kind: "Boutique spécialisée",
+    visuels: 9,
+    story: {
+      lead: "Des visuels pour un magasin spécialisé en tennis de table, badminton et squash, partenaire de Boumassa.",
+      facts: [
+        { k: "Client", v: "Multiset Sport, Rouen" },
+        { k: "Lien", v: "Sponsor de Boumassa" },
+        { k: "Livrables", v: "Visuels réseaux & supports" },
+      ],
+      text: [
+        "Multiset Sport accompagne le projet Boumassa. En retour, j'ai réalisé des supports pour la boutique : bannières aux couleurs de la marque, carte de contact, annonces d'horaires et publications pour mettre en avant les nouveautés et les promotions.",
+        "L'objectif : des visuels simples, lisibles et cohérents avec l'identité bleu et jaune de la marque, prêts à être publiés.",
+      ],
+      missions: [
+        "Bannières et supports aux couleurs de la marque",
+        "Publications promotionnelles",
+        "Annonces pratiques (horaires, nouveautés)",
+      ],
+      illustrations: [
+        { src: "visuels/006.jpg", cap: "Publication promotionnelle" },
+        { src: "visuels/009.jpg", cap: "Annonce des horaires" },
+        { src: "visuels/007.jpg", cap: "Nouvelle collection" },
+        { src: "visuels/004.jpg", cap: "Bannière de contact" },
+      ],
+    },
+  },
+
   {
     key: "astt-lisieux",
     category: "long",
@@ -211,120 +336,5 @@ window.CHATAX_PROJECTS = [
       ],
     },
   },
-  {
-    key: "padelshot-barentin",
-    category: "long",
-    desc: "Stage de Licence 2 : rendre visible un complexe de padel tout juste ouvert.",
-    title: "Padelshot Rouen-Barentin",
-    kind: "Stage · Licence 2",
-    photos: 16, visuels: 12, videos: 3,
-    story: {
-      lead: "Deux mois de stage dans un complexe de padel récemment ouvert, avec une mission claire : le rendre visible face à la concurrence locale.",
-      facts: [
-        { k: "Cadre", v: "Stage de Licence 2 Gestion, IAE Rouen Normandie" },
-        { k: "Période", v: "Avril – mai 2026" },
-        { k: "Rôle", v: "Gestion, communication & marketing" },
-      ],
-      text: [
-        "Le Padelshot Rouen-Barentin venait d'ouvrir et devait se faire une place à côté de clubs déjà installés. J'ai pris en charge les contenus du club : photos des joueurs sur les terrains, affiches d'événements et publications régulières sur les réseaux sociaux.",
-        "Une partie importante du stage a porté sur le lancement d'une nouvelle activité : l'espace tennis de table. Il a fallu tout expliquer simplement, des tarifs au matériel disponible, en passant par la réservation en ligne et le groupe WhatsApp des joueurs.",
-        "En parallèle, j'étais sur le terrain au quotidien : accueil, relation client et vente au bar, en restauration et à la boutique, ainsi que l'animation des heures creuses.",
-      ],
-      missions: [
-        "Photos des joueurs et des événements du club",
-        "Affiches et visuels pour les réseaux sociaux",
-        "Lancement et promotion de l'espace tennis de table",
-        "Vidéos courtes pour Instagram",
-        "Accueil, vente et animation des heures creuses",
-      ],
-      illustrations: [
-        { src: "story/arrivee.jpg", cap: "Arrivée au Padelshot, avril 2026" },
-        { src: "visuels/006.jpg", cap: "Affiche d'événement" },
-        { src: "visuels/007.jpg", cap: "Lancement de l'espace ping" },
-        { src: "photos/011.jpg", cap: "Photo sur les terrains" },
-        { src: "visuels/010.jpg", cap: "Comment réserver" },
-        { src: "visuels/012.jpg", cap: "Horaires de l'espace ping" },
-      ],
-    },
-  },
-  {
-    key: "multiset-sport",
-    category: "long",
-    desc: "Visuels et supports pour une boutique spécialisée, partenaire de Boumassa.",
-    title: "Multiset Sport",
-    kind: "Boutique spécialisée",
-    visuels: 9,
-    story: {
-      lead: "Des visuels pour un magasin spécialisé en tennis de table, badminton et squash, partenaire de Boumassa.",
-      facts: [
-        { k: "Client", v: "Multiset Sport, Rouen" },
-        { k: "Lien", v: "Sponsor de Boumassa" },
-        { k: "Livrables", v: "Visuels réseaux & supports" },
-      ],
-      text: [
-        "Multiset Sport accompagne le projet Boumassa. En retour, j'ai réalisé des supports pour la boutique : bannières aux couleurs de la marque, carte de contact, annonces d'horaires et publications pour mettre en avant les nouveautés et les promotions.",
-        "L'objectif : des visuels simples, lisibles et cohérents avec l'identité bleu et jaune de la marque, prêts à être publiés.",
-      ],
-      missions: [
-        "Bannières et supports aux couleurs de la marque",
-        "Publications promotionnelles",
-        "Annonces pratiques (horaires, nouveautés)",
-      ],
-      illustrations: [
-        { src: "visuels/006.jpg", cap: "Publication promotionnelle" },
-        { src: "visuels/009.jpg", cap: "Annonce des horaires" },
-        { src: "visuels/007.jpg", cap: "Nouvelle collection" },
-        { src: "visuels/004.jpg", cap: "Bannière de contact" },
-      ],
-    },
-  },
-  {
-    key: "boumassa",
-    // playlist « dernières vidéos » de la chaîne : se met à jour toute seule à chaque nouvelle vidéo
-    youtubeUploads: "UUuFXRCHIN-U5LYn8ZAztiqw",
-    category: "long",
-    desc: "Vlogs de tournois en France et en Belgique, lancés entre amis.",
-    title: "Boumassa",
-    kind: "Chaîne YouTube",
-    visuels: 17,
-    link: { href: "https://www.youtube.com/@BOUMASSA_Normandie", label: "Voir la chaîne YouTube" },
-    story: {
-      lead: "Un format de vlogs lancé entre amis pour raconter les tournois de tennis de table de l'intérieur, en France et en Belgique.",
-      facts: [
-        { k: "Lancement", v: "Août 2025" },
-        { k: "Format", v: "Vlogs de tournois & Shorts" },
-        { k: "Partenaire", v: "Multiset Sport" },
-      ],
-      text: [
-        "Boumassa suit les week-ends de tournoi tels qu'ils se passent : Wattignies, Nieppe, Lisieux, et jusqu'en Belgique à Wenduine ou Merelbeke. On filme, on monte et on raconte, du premier match au retour en voiture.",
-        "La chaîne compte une quarantaine de vidéos, entre des formats longs qui suivent un tournoi du début à la fin et des Shorts, pour près de 600 abonnés. Chaque vidéo a sa miniature, pensée pour donner envie de cliquer en une seconde.",
-        "Le projet est sponsorisé par Multiset Sport.",
-      ],
-      missions: [
-        "Tournage sur les tournois",
-        "Montage des vlogs et des Shorts",
-        "Création des miniatures YouTube",
-      ],
-      illustrations: [
-        { src: "visuels/001.jpg", cap: "Les 24 h de Lisieux" },
-        { src: "visuels/002.jpg", cap: "Wenduine, premier tournoi belge" },
-        { src: "visuels/004.jpg", cap: "Merelbeke" },
-        { src: "visuels/013.jpg", cap: "Open de Lille" },
-      ],
-    },
-  },
-  {
-    key: "lmtt",
-    category: "long",
-    desc: "Reportages photo des matchs du club, jusqu'en Ligue des champions.",
-    title: "Lille Métropole Tennis de Table",
-    short: "LMTT",
-    kind: "Club de tennis de table",
-    folders: true,
-    partsLabel: "matchs",
-    parts: [
-      { key: "vs-saarbrucken", title: "LMTT vs Saarbrücken", kind: "Ligue des champions · 13.11.2026", photos: 53 },
-      { key: "vs-amiens", title: "LMTT vs Amiens", kind: "Match · 22.09.2026", photos: 82 },
-    ],
-  },
+
 ];
