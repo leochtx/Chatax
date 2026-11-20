@@ -24,7 +24,7 @@
      illustrations : chemin relatif au dossier du projet + légende.
    ========================================================= */
 // À augmenter (2, 3, 4…) après avoir remplacé une image cover.jpg, pour que les visiteurs voient la nouvelle.
-window.CHATAX_COVERS_VERSION = 3;
+window.CHATAX_COVERS_VERSION = 4;
 
 window.CHATAX_PROJECTS = [
   /* ---------------- ÉVÉNEMENTS ---------------- */
@@ -121,11 +121,17 @@ window.CHATAX_PROJECTS = [
     folders: true,
     partsLabel: "tournois",
     parts: [
-      { key: "wattignies", title: "Tournoi de Wattignies", kind: "Tournoi · 2026", photos: 15 },
-      { key: "nieppe", title: "Tournoi de Nieppe", kind: "Tournoi · 2026", photos: 5 },
-      { key: "wenduine", title: "Tournoi de Wenduine", kind: "Tournoi · Belgique", photos: 4 },
-      { key: "merelbeke", title: "Tournoi de Merelbeke", kind: "Tournoi · Belgique", photos: 3 },
-      { key: "flers", title: "Tournoi de Flers", kind: "Tournoi", photos: 1 },
+      { key: "saint-laurent-blangy", title: "Tournoi de Saint-Laurent-Blangy", kind: "Tournoi · 2026", photos: 23 },
+      { key: "wattignies", title: "Tournoi de Wattignies", kind: "Tournoi · 2026", photos: 21 },
+      { key: "flers", title: "Tournoi de Flers", kind: "Tournoi", photos: 18 },
+      { key: "beauvais", title: "Tournoi de Beauvais", kind: "Tournoi · 2026", photos: 17 },
+      { key: "petit-quevilly", title: "Tournoi de Petit-Quevilly", kind: "Tournoi", photos: 17 },
+      { key: "laigle", title: "Tournoi de L'Aigle", kind: "Tournoi", photos: 16 },
+      { key: "nieppe", title: "Tournoi de Nieppe", kind: "Tournoi · 2026", photos: 15 },
+      { key: "grand-quevilly", title: "Tournoi international de Grand-Quevilly", kind: "Tournoi international", photos: 14 },
+      { key: "merelbeke", title: "Tournoi de Merelbeke", kind: "Tournoi · Belgique", photos: 9 },
+      { key: "wenduine", title: "Tournoi de Wenduine", kind: "Tournoi · Belgique · 2026", photos: 9 },
+      { key: "compiegne", title: "Tournoi de Compiègne", kind: "Tournoi", photos: 6 },
     ],
   },
 
