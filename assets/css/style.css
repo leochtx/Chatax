@@ -697,3 +697,15 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 .punch__text { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(26px, 3.8vw, 46px); line-height: 1.02; max-width: 26ch; margin-inline: auto; text-align: center; }
 .punch__text em { font-style: normal; color: #c9caff; }
 .punch__small { margin-top: 14px; text-align: center; font-weight: 600; color: rgba(255, 255, 255, .8); }
+
+/* phrase choc qui se lit en glissant vers la droite */
+.punch--scroll { padding: 0; }
+.punch__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.punch__track::-webkit-scrollbar { display: none; }
+.punch__slide { flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; min-height: clamp(260px, 34vw, 380px); padding: clamp(44px, 7vw, 80px) 24px; }
+.punch__text--big { font-size: clamp(34px, 6vw, 72px); max-width: 18ch; }
+.punch__next { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .6); background: rgba(255, 255, 255, .14); color: #fff; font-weight: 700; cursor: pointer; transition: background .2s, color .2s; }
+.punch__next:hover { background: #fff; color: #1d1fb5; }
+.punch__next span { display: inline-block; animation: nudge 1.4s ease-in-out infinite; }
+@keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+@media (prefers-reduced-motion: reduce) { .punch__next span { animation: none; } }

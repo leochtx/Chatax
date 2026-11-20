@@ -73,6 +73,12 @@
     new IntersectionObserver(([en]) => { contactVisible = en.isIntersecting; onScroll(); }).observe(contact);
   }
 
+  /* Phrase choc à faire défiler : le bouton « Glisse » montre la suite */
+  const punchTrack = $("#punch-track");
+  if (punchTrack) $$(".punch__next", punchTrack).forEach((b) => b.addEventListener("click", () => {
+    punchTrack.scrollBy({ left: punchTrack.clientWidth, behavior: "smooth" });
+  }));
+
   /* ---------- Reveal au scroll ---------- */
   const reveals = $$(".reveal");
   reveals.forEach((el) => {
