@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Photo & vidéo — CHATAX</title>
+  <title>Communication & photo — CHATAX</title>
   <meta name="description" content="Photos de match, tournois, portraits, formats courts et réseaux sociaux pour clubs et événements sportifs.">
   <meta name="theme-color" content="#f6f7fb">
   <meta property="og:title" content="CHATAX — Je joue. Je shoote. Je raconte.">
   <meta property="og:description" content="Photo, vidéo et communication pour clubs sportifs, événements et commerces locaux. Lille & mobile.">
   <meta property="og:image" content="assets/img/hero/hero-celebration.jpg">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="assets/img/brand/favicon.png?v=36">
+  <link rel="icon" type="image/png" href="assets/img/brand/favicon.png?v=39">
+  <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=36">
+  <link rel="stylesheet" href="assets/css/style.css?v=39">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -30,7 +31,7 @@
       <nav class="nav__links" id="menu" aria-label="Navigation principale">
         <a href="index.html">Accueil</a>
         <a href="qui-je-suis.html">Qui je suis</a>
-        <a href="photo-video.html" aria-current="page">Photo &amp; vidéo</a>
+        <a href="photo-video.html" aria-current="page">Com &amp; photo</a>
         <a href="projets.html">Projets</a>
         <a href="questions.html">Questions</a>
         <a href="#contact" class="nav__cta-mobile">Me contacter</a>
@@ -44,9 +45,32 @@
 
   <main id="contenu">
 
-    <!-- ============ PHOTO ============ -->
-    <section class="section page-top photo" id="prestations">
+    <!-- ============ VIDÉO & COM ============ -->
+    <section class="section page-top video" id="video">
       <div class="wrap backbar"><a class="back" href="index.html" data-back><span aria-hidden="true">←</span> Retour</a></div>
+      <div class="wrap split">
+        <div class="split__head">
+          <p class="kicker reveal">Communication &amp; réseaux</p>
+          <h2 class="h2 reveal">Faire vivre votre club <em>entre deux matchs</em></h2>
+          <p class="lead reveal">Une affiche la veille, le résultat le soir même, un Reel le lendemain : c'est cette régularité qui fait grandir une communauté. Et pour illustrer vos posts, je viens moi-même prendre les photos : des visuels à votre image, jamais des images de banque.</p>
+        </div>
+        <ul class="tiles">
+          <li class="tilecard reveal"><h3>Réseaux sociaux</h3><p>Affiches de match, résultats, annonces, illustrés avec mes propres photos : un fil qui vit toute la saison.</p></li>
+          <li class="tilecard reveal"><h3>Identité &amp; site vitrine</h3><p>Un logo, des supports pour vos partenaires et un site simple pour qu'on vous trouve.</p></li>
+          <li class="tilecard reveal"><h3>Formats courts</h3><p>Coulisses, défis, moments forts : des vidéos verticales pensées pour Instagram et TikTok.</p></li>
+          <li class="tilecard reveal"><h3>Lives &amp; vlogs</h3><p>Lives de matchs pros sur la chaîne de la FFTT, vlogs de tournois sur Boumassa.</p></li>
+        </ul>
+      </div>
+      <div class="wrap">
+        <div class="reels reveal" id="reels">
+          <!-- rempli par main.js : une vidéo par projet -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ PHOTO ============ -->
+    <section class="section photo" id="prestations">
       <div class="wrap split">
         <div class="split__head">
           <p class="kicker reveal">Photo</p>
@@ -71,29 +95,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ VIDÉO & COM ============ -->
-    <section class="section video" id="video">
-      <div class="wrap split">
-        <div class="split__head">
-          <p class="kicker reveal">Vidéo &amp; réseaux</p>
-          <h2 class="h2 reveal">Faire vivre votre club <em>entre deux matchs</em></h2>
-          <p class="lead reveal">Une affiche la veille, le résultat le soir même, un Reel le lendemain : c'est cette régularité qui fait grandir une communauté.</p>
-        </div>
-        <ul class="tiles">
-          <li class="tilecard reveal"><h3>Formats courts</h3><p>Coulisses, défis, moments forts : des vidéos verticales pensées pour Instagram et TikTok.</p></li>
-          <li class="tilecard reveal"><h3>Lives &amp; vlogs</h3><p>Lives de matchs pros sur la chaîne de la FFTT, vlogs de tournois sur Boumassa.</p></li>
-          <li class="tilecard reveal"><h3>Réseaux sociaux</h3><p>Affiches de match, résultats, annonces : un fil qui ne s'arrête pas au milieu de la saison.</p></li>
-          <li class="tilecard reveal"><h3>Identité &amp; site vitrine</h3><p>Un logo, des supports pour vos partenaires et un site simple pour qu'on vous trouve.</p></li>
-        </ul>
-      </div>
-      <div class="wrap">
-        <div class="reels reveal" id="reels">
-          <!-- rempli par main.js : une vidéo par projet -->
-        </div>
-      </div>
-    </section>
-
 
     <!-- ============ CE QUE VOUS RECEVEZ ============ -->
     <section class="section">
@@ -211,7 +212,7 @@
           <h4>Site</h4>
           <ul>
             <li><a href="qui-je-suis.html">Qui je suis</a></li>
-            <li><a href="photo-video.html">Photo &amp; vidéo</a></li>
+            <li><a href="photo-video.html">Com &amp; photo</a></li>
             <li><a href="projets.html">Projets</a></li>
             <li><a href="questions.html">Questions</a></li>
           </ul>
@@ -276,7 +277,7 @@
     <button class="lightbox__nav lightbox__next" id="lb-next" aria-label="Suivant">→</button>
   </div>
 
-  <script src="assets/js/projets.js?v=36" defer></script>
-  <script src="assets/js/main.js?v=36" defer></script>
+  <script src="assets/js/projets.js?v=39" defer></script>
+  <script src="assets/js/main.js?v=39" defer></script>
 </body>
 </html>

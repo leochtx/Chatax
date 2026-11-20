@@ -2,6 +2,15 @@
 (function () {
   "use strict";
 
+  /* Actualiser la page = revenir tout en haut (sans projet ouvert ni ancre) */
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  const navEntry = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+  if (navEntry && navEntry.type === "reload") {
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    window.scrollTo(0, 0);
+    window.addEventListener("load", () => window.scrollTo(0, 0));
+  }
+
   /* ------------------------------------------------------------
      CONFIG FORMULAIRE
      Laisser vide => le formulaire ouvre l'app mail du visiteur
@@ -84,11 +93,11 @@
   /* =========================================================
      PORTFOLIO — cartes de projets, en deux sections
      ========================================================= */
-  const TYPES = [
-    { id: "photos", label: "Photos", one: "photo", many: "photos" },
-    { id: "visuels", label: "Visuels", one: "visuel", many: "visuels" },
-    { id: "videos", label: "Vidéos", one: "vidéo", many: "vidéos" },
-  ];
+  // ordre des dossiers dans un projet : la communication (visuels) d'abord, puis les photos
+  const T_PHOTOS = { id: "photos", label: "Photos", one: "photo", many: "photos" };
+  const T_VISUELS = { id: "visuels", label: "Visuels", one: "visuel", many: "visuels" };
+  const T_VIDEOS = { id: "videos", label: "Vidéos", one: "vidéo", many: "vidéos" };
+  const TYPES = [T_VISUELS, T_PHOTOS, T_VIDEOS];
   const plural = (t, n) => `${n} ${n > 1 ? t.many : t.one}`;
   const base = (p) => `assets/projets/${p.key}`;
   // version des couvertures : à augmenter dans projets.js après avoir remplacé une cover.jpg
@@ -155,12 +164,23 @@
   $$(".projects[data-category]").forEach((grid) => {
     const list = VISIBLE.filter((p) => (p.category || "long") === grid.dataset.category);
     // sur l'accueil, data-limit n'affiche qu'une sélection ; la page Projets montre tout
-    const shown = grid.dataset.limit ? list.slice(0, Number(grid.dataset.limit)) : list;
+    // data-pin : projets toujours présents dans la sélection (ex. les tournois)
+    const pins = (grid.dataset.pin || "").split(",").filter(Boolean);
+    let shown = list;
+    if (grid.dataset.limit) {
+      const n = Number(grid.dataset.limit);
+      const pinned = list.filter((p) => pins.includes(p.key));
+      const others = list.filter((p) => !pins.includes(p.key)).slice(0, Math.max(0, n - pinned.length));
+      shown = list.filter((p) => pinned.includes(p) || others.includes(p));
+    }
     grid.innerHTML = shown.map((p, i) => revealCard({
       attrs: `data-key="${p.key}"`, src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: p.title, desc: p.desc,
     }, i)).join("");
     wire(grid);
-    bindReveal(grid, (c) => openProject(c.dataset.key));
+    // sur l'accueil, une carte ouvre le projet sur la page Projets
+    bindReveal(grid, (c) => grid.dataset.limit
+      ? (location.href = `projets.html#projet/${c.dataset.key}`)
+      : openProject(c.dataset.key));
     if (!list.length) grid.closest(".pgroup").hidden = true;
   });
 
@@ -168,15 +188,15 @@
   const strip = $("#strip");
   if (strip) {
     const items = [];
-    VISIBLE.filter((p) => total(p, TYPES[0]) > 0).forEach((p) => {
+    VISIBLE.filter((p) => total(p, T_PHOTOS) > 0).forEach((p) => {
       if (p.folders && hasParts(p)) {
-        groupsOf(p).filter((g) => count(g, TYPES[0]) > 0).forEach((g) => items.push({
+        groupsOf(p).filter((g) => count(g, T_PHOTOS) > 0).forEach((g) => items.push({
           key: p.key, part: g.key, src: `${g.dir}/cover.jpg${CV}`, kind: g.kind || p.kind, title: g.title,
-          desc: `${plural(TYPES[0], count(g, TYPES[0]))} · ${p.short || p.title}`,
+          desc: `${plural(T_PHOTOS, count(g, T_PHOTOS))} · ${p.short || p.title}`,
         }));
       } else {
         items.push({ key: p.key, part: "", src: `${base(p)}/${p.photoCover || "cover.jpg"}${CV}`, kind: p.kind, title: p.title,
-          desc: `${plural(TYPES[0], total(p, TYPES[0]))}${p.desc ? " · " + p.desc : ""}` });
+          desc: `${plural(T_PHOTOS, total(p, T_PHOTOS))}${p.desc ? " · " + p.desc : ""}` });
       }
     });
     strip.innerHTML = items.map((it, i) => revealCard({
@@ -197,7 +217,7 @@
   const REELS = [];
   const reelsEl = $("#reels");
   if (reelsEl) {
-    VISIBLE.filter((p) => total(p, TYPES[2]) > 0 && !hasParts(p)).forEach((p) => {
+    VISIBLE.filter((p) => total(p, T_VIDEOS) > 0 && !hasParts(p)).forEach((p) => {
       const pick = (p.covers && p.covers.videos) ? p.covers.videos.replace(/^videos\/|-poster\.jpg$/g, "") : "001";
       const dir = `${base(p)}/videos`;
       REELS.push({ kind: "video", src: `${dir}/${pick}.mp4`, poster: `${dir}/${pick}-poster.jpg`, cap: p.title,

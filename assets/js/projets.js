@@ -131,20 +131,6 @@ window.CHATAX_PROJECTS = [
 
   /* ---------------- PROJETS AU LONG COURS ---------------- */
   {
-    key: "lmtt",
-    category: "long",
-    desc: "Reportages photo des matchs du club, jusqu'en Ligue des champions.",
-    title: "Lille Métropole Tennis de Table",
-    short: "LMTT",
-    kind: "Club de tennis de table",
-    folders: true,
-    partsLabel: "matchs",
-    parts: [
-      { key: "vs-saarbrucken", title: "LMTT vs Saarbrücken", kind: "Ligue des champions · 13.11.2026", photos: 53 },
-      { key: "vs-amiens", title: "LMTT vs Amiens", kind: "Match · 22.09.2026", photos: 82 },
-    ],
-  },
-  {
     key: "alcl-grand-quevilly",
     category: "long",
     desc: "Service civique : toute la communication d'un club de Pro A Dames.",
@@ -320,5 +306,19 @@ window.CHATAX_PROJECTS = [
         { src: "visuels/013.jpg", cap: "Open de Lille" },
       ],
     },
+  },
+  {
+    key: "lmtt",
+    category: "long",
+    desc: "Reportages photo des matchs du club, jusqu'en Ligue des champions.",
+    title: "Lille Métropole Tennis de Table",
+    short: "LMTT",
+    kind: "Club de tennis de table",
+    folders: true,
+    partsLabel: "matchs",
+    parts: [
+      { key: "vs-saarbrucken", title: "LMTT vs Saarbrücken", kind: "Ligue des champions · 13.11.2026", photos: 53 },
+      { key: "vs-amiens", title: "LMTT vs Amiens", kind: "Match · 22.09.2026", photos: 82 },
+    ],
   },
 ];
