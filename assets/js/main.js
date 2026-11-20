@@ -190,7 +190,8 @@
     const items = [];
     // ordre : projets au long cours, puis événements, et les tournois à la fin (un seul album)
     const rank = (p) => (p.key === "tennis-de-table" ? 2 : (p.category || "long") === "long" ? 0 : 1);
-    VISIBLE.filter((p) => total(p, T_PHOTOS) > 0)
+    // bande Photo : uniquement les reportages 100 % photo (aucun visuel) ; les projets de com restent dans Projets
+    VISIBLE.filter((p) => total(p, T_PHOTOS) > 0 && total(p, T_VISUELS) === 0)
       .map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map((x) => x.p)
       .forEach((p) => {
       if (p.key === "tennis-de-table") {
