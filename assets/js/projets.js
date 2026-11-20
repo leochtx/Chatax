@@ -24,7 +24,7 @@
      illustrations : chemin relatif au dossier du projet + légende.
    ========================================================= */
 // À augmenter (2, 3, 4…) après avoir remplacé une image cover.jpg, pour que les visiteurs voient la nouvelle.
-window.CHATAX_COVERS_VERSION = 4;
+window.CHATAX_COVERS_VERSION = 5;
 
 window.CHATAX_PROJECTS = [
   /* ---------------- ÉVÉNEMENTS (du plus récent au plus ancien) ---------------- */
