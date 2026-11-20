@@ -641,3 +641,18 @@ figcaption, .story__fig figcaption, .cta__channels span, .collage__badge span, .
 /* accueil : quelques réalisations, en grand */
 @media (max-width: 759px) { .projects[data-limit="3"]:has(.rcard) { grid-template-columns: 1fr; gap: 12px; } .projects[data-limit="3"] .rcard { aspect-ratio: 4 / 3; } }
 @media (min-width: 1200px) { .projects[data-limit="3"]:has(.rcard) { grid-template-columns: repeat(3, 1fr); gap: 20px; } .projects[data-limit="3"] .rcard { aspect-ratio: 4 / 3.6; } }
+
+/* accueil : réalisations côte à côte (accompagnement | événements ponctuels) */
+.pgroups-duo { display: grid; gap: clamp(40px, 6vw, 56px); }
+.pgroups-duo .pgroup + .pgroup { margin-top: 0; }
+@media (min-width: 960px) { .pgroups-duo { grid-template-columns: 1fr 1fr; gap: 40px; } .pgroups-duo .pgroup__head { flex-direction: column; align-items: flex-start; gap: 6px; } }
+.projects[data-limit="2"]:has(.rcard) { grid-template-columns: 1fr 1fr; gap: 12px; }
+.projects[data-limit="2"] .rcard { aspect-ratio: 1 / 1; }
+
+/* section Photo : albums d'abord, puis les quatre cartes sur une ligne */
+.photo .section__head { margin-bottom: 8px; }
+.photo__tiles { margin-top: clamp(28px, 4vw, 44px); }
+@media (min-width: 900px) { .tiles--row { grid-template-columns: repeat(4, 1fr); } }
+
+/* bas de page : Contact et Suivre seulement */
+@media (min-width: 800px) { .footer__grid { grid-template-columns: repeat(2, minmax(0, 260px)); gap: 64px; } }
