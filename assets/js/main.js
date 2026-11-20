@@ -143,7 +143,7 @@
      ou au premier toucher (mobile), l'image s'assombrit et se floute, le titre et la description
      apparaissent. Deuxième toucher = ouverture. */
   const revealCard = (c, i) => `<button class="rcard ${c.cls || ""}" style="--i:${i}" ${c.attrs || ""} aria-label="${esc(c.title)} : ${esc(c.desc || c.kind || "")}">
-      <span class="rcard__media media${c.fit === "contain" ? " rcard__media--contain" : ""}">${c.fit === "contain" ? `<img class="rcard__blur" src="${c.src}" alt="" loading="lazy">` : ""}<img src="${c.src}" alt="" loading="lazy"></span>
+      <span class="rcard__media media${c.fit === "contain" ? " rcard__media--contain" : ""}">${c.fit === "contain" ? `<img class="rcard__blur" src="${c.src}" alt="" loading="lazy">` : ""}<img src="${c.src}" alt="" loading="lazy"${c.pos ? ` style="object-position:${c.pos}"` : ""}></span>
       <span class="rcard__shade" aria-hidden="true"></span>
       ${c.play ? '<span class="play rcard__play" aria-hidden="true"></span>' : ""}
       <span class="rcard__info" aria-hidden="true">
@@ -184,7 +184,7 @@
       shown = ranked.filter((p) => pinned.includes(p) || others.includes(p));
     }
     grid.innerHTML = shown.map((p, i) => revealCard({
-      attrs: `data-key="${p.key}"`, src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: p.title, desc: p.desc, fit: p.coverFit,
+      attrs: `data-key="${p.key}"`, src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: p.title, desc: p.desc, fit: p.coverFit, pos: p.coverPos,
     }, i)).join("");
     wire(grid);
     // sur l'accueil, une carte ouvre le projet sur la page Projets

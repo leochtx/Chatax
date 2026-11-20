@@ -24,7 +24,7 @@
      illustrations : chemin relatif au dossier du projet + légende.
    ========================================================= */
 // À augmenter (2, 3, 4…) après avoir remplacé une image cover.jpg, pour que les visiteurs voient la nouvelle.
-window.CHATAX_COVERS_VERSION = 6;
+window.CHATAX_COVERS_VERSION = 7;
 
 window.CHATAX_PROJECTS = [
   /* ---------------- ÉVÉNEMENTS (du plus récent au plus ancien) ---------------- */
@@ -92,7 +92,7 @@ window.CHATAX_PROJECTS = [
 
   {
     key: "cdf-laval-2026",
-    coverFit: "contain", // affiche ou logo : montrée en entier
+    coverPos: "50% 22%", // cadrage de la couverture (cartes paysage sur mobile)
     photoCover: "cover-photo.jpg",
     category: "event",
     desc: "Reportage photo aux championnats de France de tennis de table, à Laval.",
