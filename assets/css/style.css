@@ -709,3 +709,8 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 .punch__next span { display: inline-block; animation: nudge 1.4s ease-in-out infinite; }
 @keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
 @media (prefers-reduced-motion: reduce) { .punch__next span { animation: none; } }
+
+/* citations : ton parlé */
+/* citations : ton parlé, en phrase normale plutôt qu'en capitales */
+.punch__text { font-family: var(--f-sans); text-transform: none; font-weight: 800; letter-spacing: -.01em; line-height: 1.18; font-size: clamp(24px, 3.2vw, 40px); max-width: 30ch; }
+.punch__text--big { font-size: clamp(30px, 4.6vw, 56px); max-width: 20ch; }
