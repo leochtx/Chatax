@@ -188,8 +188,16 @@
   const strip = $("#strip");
   if (strip) {
     const items = [];
-    VISIBLE.filter((p) => total(p, T_PHOTOS) > 0).forEach((p) => {
-      if (p.folders && hasParts(p)) {
+    // ordre : projets au long cours, puis événements, et les tournois à la fin (un seul album)
+    const rank = (p) => (p.key === "tennis-de-table" ? 2 : (p.category || "long") === "long" ? 0 : 1);
+    VISIBLE.filter((p) => total(p, T_PHOTOS) > 0)
+      .map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map((x) => x.p)
+      .forEach((p) => {
+      if (p.key === "tennis-de-table") {
+        const n = groupsOf(p).length;
+        items.push({ key: p.key, part: "", src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: "Tournois",
+          desc: `${n} tournois · ${plural(T_PHOTOS, total(p, T_PHOTOS))}` });
+      } else if (p.folders && hasParts(p)) {
         groupsOf(p).filter((g) => count(g, T_PHOTOS) > 0).forEach((g) => items.push({
           key: p.key, part: g.key, src: `${g.dir}/cover.jpg${CV}`, kind: g.kind || p.kind, title: g.title,
           desc: `${plural(T_PHOTOS, count(g, T_PHOTOS))} · ${p.short || p.title}`,
