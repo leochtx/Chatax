@@ -415,6 +415,13 @@
     sectionsEl.innerHTML = `<section class="psec">${gal.html}</section>`;
   }
 
+  // la barre du site reste visible au-dessus des albums (version pleine, lisible sur fond clair)
+  const navWasSolid = nav.classList.contains("nav--solid");
+  function setAlbumNav(on) {
+    document.body.classList.toggle("album-on", on);
+    nav.classList.toggle("nav--solid", on || navWasSolid);
+  }
+
   function openProject(key, partKey, fromHistory) {
     const p = VISIBLE.find((x) => x.key === key); if (!p) return;
     if (albumEl.hidden) lastFocus = document.activeElement;
@@ -424,6 +431,7 @@
     $$(".tile[data-set]", sectionsEl).forEach((el) => el.addEventListener("click", () => openLightbox(el.dataset.set, Number(el.dataset.i))));
     albumEl.hidden = false;
     albumEl.scrollTop = 0;
+    setAlbumNav(true);
     lockScroll();
     $("#album-back").focus();
     if (!fromHistory) history.pushState({ project: key, part: partKey || null }, "", `#projet/${key}${partKey ? "/" + partKey : ""}`);
@@ -448,6 +456,7 @@
     if (albumEl.hidden) return;
     closeLightbox();
     albumEl.hidden = true;
+    setAlbumNav(false);
     sectionsEl.innerHTML = "";
     openState = null;
     lockScroll();
