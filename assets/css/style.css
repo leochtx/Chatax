@@ -689,3 +689,11 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
   .projects[data-category]:has(.rcard) { grid-template-columns: 1fr; gap: 12px; }
   .projects[data-category] .rcard { aspect-ratio: 16 / 11; }
 }
+
+/* phrases chocs : bandeau bleu entre deux sections */
+.punch { background: var(--grad); color: #fff; padding: clamp(44px, 7vw, 80px) 0; position: relative; overflow: hidden; }
+.punch::before { content: "\201C"; position: absolute; left: max(12px, calc((100vw - 1240px) / 2)); top: -0.18em; font-family: var(--f-display); font-weight: 900; font-size: clamp(160px, 22vw, 300px); line-height: 1; color: rgba(255, 255, 255, .12); pointer-events: none; }
+.punch .wrap { position: relative; }
+.punch__text { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(26px, 3.8vw, 46px); line-height: 1.02; max-width: 26ch; margin-inline: auto; text-align: center; }
+.punch__text em { font-style: normal; color: #c9caff; }
+.punch__small { margin-top: 14px; text-align: center; font-weight: 600; color: rgba(255, 255, 255, .8); }
