@@ -10,12 +10,12 @@
   <meta property="og:description" content="Photo, vidéo et communication pour clubs sportifs, événements et commerces locaux. Lille & mobile.">
   <meta property="og:image" content="assets/img/hero/hero-celebration.jpg">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="assets/img/brand/favicon.png?v=44">
+  <link rel="icon" type="image/png" href="assets/img/brand/favicon.png?v=46">
   <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=44">
+  <link rel="stylesheet" href="assets/css/style.css?v=46">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -31,7 +31,7 @@
       <nav class="nav__links" id="menu" aria-label="Navigation principale">
         <a href="qui-je-suis.html">Qui je suis</a>
         <a href="photo-video.html">Com &amp; photo</a>
-        <a href="projets.html">Projets</a>
+        <a href="projets.html">Réalisations</a>
         <a href="questions.html">Questions</a>
         <a href="#contact" class="nav__cta-mobile">Me contacter</a>
       </nav>
@@ -90,10 +90,33 @@
           <li class="tilecard reveal"><h3>Lives &amp; vlogs</h3><p>Lives de matchs pros sur la chaîne de la FFTT, vlogs de tournois sur Boumassa.</p></li>
         </ul>
       </div>
+    </section>
+
+    <!-- ============ PORTFOLIO (PROJETS) ============ -->
+    <section class="section portfolio" id="portfolio">
       <div class="wrap">
-        <div class="reels reveal" id="reels">
-          <!-- rempli par main.js : une vidéo par projet -->
+        <div class="section__head">
+          <p class="kicker reveal"><a href="projets.html">Réalisations</a></p>
+          <h2 class="h2 reveal"><a class="h2-link" href="projets.html">Mes <em>projets</em> <span class="h2-arrow" aria-hidden="true">→</span></a></h2>
         </div>
+
+        <!-- cartes remplies par main.js à partir de assets/js/projets.js -->
+        <div class="pgroup" id="long-cours">
+          <div class="pgroup__head reveal">
+            <h3>Projets au long cours</h3>
+            <p>Des clubs, une marque, une chaîne : une saison ou plus à leurs côtés.</p>
+          </div>
+          <div class="projects" data-category="long" data-limit="3"></div>
+        </div>
+        <div class="pgroup" id="evenements">
+          <div class="pgroup__head reveal">
+            <h3>Événements</h3>
+            <p>Un tournoi, une finale, un championnat : des projets sur un temps fort.</p>
+          </div>
+          <div class="projects" data-category="event" data-limit="3"></div>
+        </div>
+
+        <div class="more-row reveal"><a class="btn btn--accent" href="projets.html">Voir tous les projets <span aria-hidden="true">→</span></a></div>
       </div>
     </section>
 
@@ -125,34 +148,6 @@
       </div>
     </section>
 
-    <!-- ============ PORTFOLIO (PROJETS) ============ -->
-    <section class="section portfolio" id="portfolio">
-      <div class="wrap">
-        <div class="section__head">
-          <p class="kicker reveal"><a href="projets.html">Réalisations</a></p>
-          <h2 class="h2 reveal"><a class="h2-link" href="projets.html">Mes <em>projets</em> <span class="h2-arrow" aria-hidden="true">→</span></a></h2>
-        </div>
-
-        <!-- cartes remplies par main.js à partir de assets/js/projets.js -->
-        <div class="pgroup" id="long-cours">
-          <div class="pgroup__head reveal">
-            <h3>Projets au long cours</h3>
-            <p>Des clubs, une marque, une chaîne : une saison ou plus à leurs côtés.</p>
-          </div>
-          <div class="projects" data-category="long" data-limit="4"></div>
-        </div>
-        <div class="pgroup" id="evenements">
-          <div class="pgroup__head reveal">
-            <h3>Événements</h3>
-            <p>Un tournoi, une finale, un championnat : des projets sur un temps fort.</p>
-          </div>
-          <div class="projects" data-category="event" data-limit="4" data-pin="tennis-de-table"></div>
-        </div>
-
-        <div class="more-row reveal"><a class="btn btn--accent" href="projets.html">Voir tous les projets <span aria-hidden="true">→</span></a></div>
-      </div>
-    </section>
-
     <!-- ============ ÉTAPES ============ -->
     <section class="section steps-sec">
       <div class="wrap">
@@ -166,31 +161,6 @@
           <li class="tilecard reveal"><span class="steps__n">03</span><h3>Vous publiez</h3><p>Je trie, retouche et monte, puis je vous envoie des fichiers prêts à poster, au bon format pour chaque réseau.</p></li>
         </ol>
       </div>
-    </section>
-
-    <!-- ============ FAQ ============ -->
-    <section class="section faq" id="faq">
-      <div class="wrap split">
-        <div class="split__head">
-          <p class="kicker reveal"><a href="questions.html">FAQ</a></p>
-          <h2 class="h2 reveal"><a class="h2-link" href="questions.html">Ce qu'on <em>me demande souvent</em> <span class="h2-arrow" aria-hidden="true">→</span></a></h2>
-        </div>
-        <div class="faq__list reveal">
-          <details>
-            <summary>Tu te déplaces jusqu'où ?</summary>
-            <p>Je suis basé à Lille et je bouge dans toute la France, et en Belgique : j'ai déjà couvert des tournois à Wenduine et à Merelbeke. Le déplacement est indiqué noir sur blanc dans le devis.</p>
-          </details>
-          <details>
-            <summary>Je reçois combien de photos ?</summary>
-            <p>Pas une carte mémoire entière : une sélection triée et retouchée, avec uniquement les images qui valent la peine d'être publiées.</p>
-          </details>
-          <details>
-            <summary>Et pour les délais ?</summary>
-            <p>Quelques photos le soir même pour annoncer le résultat, le reste dans les jours qui suivent, selon ce qu'on a prévu ensemble.</p>
-          </details>
-        </div>
-      </div>
-      <div class="wrap more-row reveal"><a class="btn btn--accent" href="questions.html">Toutes les questions <span aria-hidden="true">→</span></a></div>
     </section>
 
     <!-- ============ CONTACT (bloc orange) ============ -->
@@ -255,7 +225,7 @@
           <ul>
             <li><a href="qui-je-suis.html">Qui je suis</a></li>
             <li><a href="photo-video.html">Com &amp; photo</a></li>
-            <li><a href="projets.html">Projets</a></li>
+            <li><a href="projets.html">Réalisations</a></li>
             <li><a href="questions.html">Questions</a></li>
           </ul>
         </div>
@@ -276,7 +246,6 @@
           </ul>
         </div>
       </div>
-      <p class="footer__word" aria-hidden="true">CHATAX</p>
       <p class="footer__copy">© <span id="year">2026</span> CHATAX · Léonard Chatoux. Photos et visuels protégés, reproduction interdite sans accord.</p>
     </div>
   </footer>
@@ -319,7 +288,7 @@
     <button class="lightbox__nav lightbox__next" id="lb-next" aria-label="Suivant">→</button>
   </div>
 
-  <script src="assets/js/projets.js?v=44" defer></script>
-  <script src="assets/js/main.js?v=44" defer></script>
+  <script src="assets/js/projets.js?v=46" defer></script>
+  <script src="assets/js/main.js?v=46" defer></script>
 </body>
 </html>

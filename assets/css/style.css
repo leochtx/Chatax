@@ -634,3 +634,10 @@ figcaption, .story__fig figcaption, .cta__channels span, .collage__badge span, .
 .back--light { background: rgba(255, 255, 255, .14); border-color: rgba(255, 255, 255, .55); color: #fff; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 .back--light:hover { background: #fff; color: #1d1fb5; border-color: #fff; }
 @media (min-width: 900px) { .nav:not(.is-scrolled):not(.nav--solid) .nav__links a[aria-current="page"] { color: #fff; } .nav:not(.is-scrolled):not(.nav--solid) .nav__links a[aria-current="page"]::after { transform: scaleX(1); } }
+
+.pills--networks { margin-top: 22px; }
+.pills--networks li { background: #2a2ce2; color: #fff; border-color: #2a2ce2; }
+
+/* accueil : quelques réalisations, en grand */
+@media (max-width: 759px) { .projects[data-limit="3"]:has(.rcard) { grid-template-columns: 1fr; gap: 12px; } .projects[data-limit="3"] .rcard { aspect-ratio: 4 / 3; } }
+@media (min-width: 1200px) { .projects[data-limit="3"]:has(.rcard) { grid-template-columns: repeat(3, 1fr); gap: 20px; } .projects[data-limit="3"] .rcard { aspect-ratio: 4 / 3.6; } }
