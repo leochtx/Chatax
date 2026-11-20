@@ -144,7 +144,9 @@
   /* Portfolio : Événements / Projets au long cours */
   $$(".projects[data-category]").forEach((grid) => {
     const list = VISIBLE.filter((p) => (p.category || "long") === grid.dataset.category);
-    grid.innerHTML = list.map((p, i) => revealCard({
+    // sur l'accueil, data-limit n'affiche qu'une sélection ; la page Projets montre tout
+    const shown = grid.dataset.limit ? list.slice(0, Number(grid.dataset.limit)) : list;
+    grid.innerHTML = shown.map((p, i) => revealCard({
       attrs: `data-key="${p.key}"`, src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: p.title, desc: p.desc,
     }, i)).join("");
     wire(grid);

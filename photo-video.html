@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo & vidéo — CHATAX</title>
+  <meta name="description" content="Photos de match, tournois, portraits, formats courts et réseaux sociaux pour clubs et événements sportifs.">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta property="og:title" content="CHATAX — Je joue. Je shoote. Je raconte.">
+  <meta property="og:description" content="Photo, vidéo et communication pour clubs sportifs, événements et commerces locaux. Lille & mobile.">
+  <meta property="og:image" content="assets/img/hero/hero-celebration.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="assets/img/brand/favicon.png?v=35">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=35">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="nav nav--solid" id="nav">
+    <div class="nav__inner wrap">
+      <a class="brand" href="index.html" aria-label="CHATAX — retour en haut">
+        <img src="assets/img/brand/logo-blue.png" alt="" width="30" height="32">
+        <span>CHATAX</span>
+      </a>
+      <nav class="nav__links" id="menu" aria-label="Navigation principale">
+        <a href="qui-je-suis.html">Qui je suis</a>
+        <a href="photo-video.html">Photo &amp; vidéo</a>
+        <a href="projets.html">Projets</a>
+        <a href="questions.html">Questions</a>
+        <a href="#contact" class="nav__cta-mobile">Me contacter</a>
+      </nav>
+      <a class="btn btn--accent btn--sm nav__cta" href="#contact">Me contacter <span aria-hidden="true">→</span></a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ============ PHOTO ============ -->
+    <section class="section page-top photo" id="prestations">
+      <div class="wrap split">
+        <div class="split__head">
+          <p class="kicker reveal">Photo</p>
+          <h2 class="h2 reveal">Capter le point <em>qui fait basculer</em></h2>
+          <p class="lead reveal">Je joue depuis 14 ans : je sens quand un échange va s'emballer, et je sais où me placer pour ne pas le rater.</p>
+        </div>
+        <ul class="tiles">
+          <li class="tilecard reveal"><h3>En match</h3><p>Le geste, la sueur, le poing serré après un point gagné, la réaction du banc.</p></li>
+          <li class="tilecard reveal"><h3>Sur un tournoi</h3><p>Du premier tour à la remise des prix, le week-end entier raconté en images.</p></li>
+          <li class="tilecard reveal"><h3>Portraits</h3><p>Joueurs, coachs, bénévoles : de quoi présenter l'équipe ou annoncer un résultat.</p></li>
+          <li class="tilecard reveal"><h3>Côté partenaires</h3><p>Leurs logos sur les maillots et les panneaux, mis en valeur sans forcer.</p></li>
+        </ul>
+      </div>
+
+      <div class="strip reveal">
+        <div class="strip__track" id="strip" tabindex="0" aria-label="Aperçu de mes reportages">
+          <!-- rempli par main.js -->
+        </div>
+        <div class="strip__nav wrap">
+          <button class="roundbtn" id="strip-prev" aria-label="Photos précédentes">←</button>
+          <button class="roundbtn" id="strip-next" aria-label="Photos suivantes">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VIDÉO & COM ============ -->
+    <section class="section video" id="video">
+      <div class="wrap split">
+        <div class="split__head">
+          <p class="kicker reveal">Vidéo &amp; réseaux</p>
+          <h2 class="h2 reveal">Faire vivre votre club <em>entre deux matchs</em></h2>
+          <p class="lead reveal">Une affiche la veille, le résultat le soir même, un Reel le lendemain : c'est cette régularité qui fait grandir une communauté.</p>
+        </div>
+        <ul class="tiles">
+          <li class="tilecard reveal"><h3>Formats courts</h3><p>Coulisses, défis, moments forts : des vidéos verticales pensées pour Instagram et TikTok.</p></li>
+          <li class="tilecard reveal"><h3>Lives &amp; vlogs</h3><p>Lives de matchs pros sur la chaîne de la FFTT, vlogs de tournois sur Boumassa.</p></li>
+          <li class="tilecard reveal"><h3>Réseaux sociaux</h3><p>Affiches de match, résultats, annonces : un fil qui ne s'arrête pas au milieu de la saison.</p></li>
+          <li class="tilecard reveal"><h3>Identité &amp; site vitrine</h3><p>Un logo, des supports pour vos partenaires et un site simple pour qu'on vous trouve.</p></li>
+        </ul>
+      </div>
+      <div class="wrap">
+        <div class="reels reveal" id="reels">
+          <!-- rempli par main.js : une vidéo par projet -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ CE QUE VOUS RECEVEZ ============ -->
+    <section class="section">
+      <div class="wrap split">
+        <div class="split__head">
+          <p class="kicker reveal">Concrètement</p>
+          <h2 class="h2 reveal">Ce que <em>vous recevez</em></h2>
+        </div>
+        <ul class="tiles">
+          <li class="tilecard reveal"><h3>Une sélection</h3><p>Pas une carte mémoire entière : uniquement les meilleures images, triées et retouchées.</p></li>
+          <li class="tilecard reveal"><h3>Les bons formats</h3><p>4:5 pour Instagram, 9:16 pour les stories et les Reels, 16:9 pour votre site et YouTube.</p></li>
+          <li class="tilecard reveal"><h3>Vite</h3><p>Quelques photos le soir même pour annoncer le résultat, le reste dans les jours qui suivent.</p></li>
+          <li class="tilecard reveal"><h3>Utilisable par vos partenaires</h3><p>Logos visibles, images en haute définition, prêtes pour vos dossiers et vos affiches.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FORMULES ============ -->
+    <section class="section about">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="kicker reveal">Formules</p>
+          <h2 class="h2 reveal">Deux façons <em>de travailler</em></h2>
+        </div>
+        <div class="offers">
+          <article class="offer reveal">
+            <p class="offer__tag">Ponctuel</p>
+            <h3>Un temps fort</h3>
+            <p>Un match, un tournoi, une finale, une soirée : je couvre l'événement et je vous livre les contenus.</p>
+            <ul class="checklist"><li>Photos et/ou vidéos de l'événement</li><li>Sélection retouchée</li><li>Formats réseaux sociaux</li></ul>
+          </article>
+          <article class="offer offer--accent reveal">
+            <p class="offer__tag">À la saison</p>
+            <h3>Un suivi régulier</h3>
+            <p>Je suis votre club tout au long de la saison et je fais vivre vos réseaux entre deux matchs.</p>
+            <ul class="checklist"><li>Présence sur vos rencontres</li><li>Affiches, résultats, annonces</li><li>Reels et formats courts</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ÉTAPES ============ -->
+    <section class="section steps-sec">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="kicker reveal">Ma façon de travailler</p>
+          <h2 class="h2 reveal">Du premier message <em>à la livraison</em></h2>
+        </div>
+        <ol class="steps">
+          <li class="tilecard reveal"><span class="steps__n">01</span><h3>On en parle</h3><p>Vous me racontez votre club ou votre événement et ce que vous voulez montrer. On fixe la date et le format.</p></li>
+          <li class="tilecard reveal"><span class="steps__n">02</span><h3>Je suis sur place</h3><p>Au bord de la table, dans les tribunes, en coulisses : je couvre l'événement du début à la fin.</p></li>
+          <li class="tilecard reveal"><span class="steps__n">03</span><h3>Vous publiez</h3><p>Je trie, retouche et monte, puis je vous envoie des fichiers prêts à poster, au bon format pour chaque réseau.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT (bloc orange) ============ -->
+    <section class="section cta" id="contact">
+      <div class="wrap">
+        <div class="cta__box">
+          <div class="cta__intro">
+            <p class="kicker kicker--light reveal">Contact</p>
+            <h2 class="cta__title reveal">Écrivez-moi.</h2>
+            <p class="cta__lead reveal">Un match à couvrir, un tournoi à raconter, des réseaux à relancer ? Dites-moi tout, je vous réponds vite.</p>
+            <ul class="cta__channels reveal">
+              <li><a href="mailto:chatax.off@gmail.com"><span>Email</span>chatax.off@gmail.com</a></li>
+              <li><a href="tel:+33644398580"><span>Téléphone</span>06 44 39 85 80</a></li>
+              <li><a href="https://www.instagram.com/chatax_off" target="_blank" rel="noopener"><span>Instagram</span>@chatax_off ↗</a></li>
+              <li><a href="https://www.linkedin.com/in/l%C3%A9onard-chatoux-794581329/" target="_blank" rel="noopener"><span>LinkedIn</span>Léonard Chatoux ↗</a></li>
+            </ul>
+          </div>
+
+          <form class="form reveal" id="contact-form" novalidate>
+            <div class="field">
+              <label for="f-name">Nom / structure <span aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="organization" placeholder="Ex. Club de tennis de table de Lille" required>
+            </div>
+            <div class="field">
+              <label for="f-contact">Email ou téléphone <span aria-hidden="true">*</span></label>
+              <input id="f-contact" name="contact" type="text" autocomplete="email" placeholder="vous@club.fr ou 06…" required>
+            </div>
+            <fieldset class="field">
+              <legend>Type de besoin <span aria-hidden="true">*</span></legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="need" value="Club sportif" required><span>Club</span></label>
+                <label class="chip"><input type="radio" name="need" value="Événement"><span>Événement</span></label>
+                <label class="chip"><input type="radio" name="need" value="Commerce local"><span>Commerce</span></label>
+                <label class="chip"><input type="radio" name="need" value="Photo / vidéo" data-need="photo"><span>Photo / vidéo</span></label>
+                <label class="chip"><input type="radio" name="need" value="Réseaux sociaux" data-need="reseaux"><span>Réseaux</span></label>
+                <label class="chip"><input type="radio" name="need" value="Site vitrine" data-need="site"><span>Site</span></label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label for="f-msg">Votre message <span aria-hidden="true">*</span></label>
+              <textarea id="f-msg" name="message" rows="4" placeholder="Date, lieu, ce que vous imaginez, vos délais…" required></textarea>
+            </div>
+            <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn--dark btn--block" type="submit">Envoyer ma demande <span aria-hidden="true">→</span></button>
+            <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/brand/logo-white.png" alt="" width="40" height="43" loading="lazy">
+          <p>Photo, vidéo et communication pour le sport et les commerces locaux. Basé à Lille, mobile partout en France.</p>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="qui-je-suis.html">Qui je suis</a></li>
+            <li><a href="photo-video.html">Photo &amp; vidéo</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="questions.html">Questions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+33644398580">06 44 39 85 80</a></li>
+            <li><a href="mailto:chatax.off@gmail.com">chatax.off@gmail.com</a></li>
+            <li>Lille &amp; mobile</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Suivre</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/chatax_off" target="_blank" rel="noopener">Instagram ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/l%C3%A9onard-chatoux-794581329/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+            <li><a href="https://www.youtube.com/@BOUMASSA_Normandie" target="_blank" rel="noopener">YouTube Boumassa ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__word" aria-hidden="true">CHATAX</p>
+      <p class="footer__copy">© <span id="year">2026</span> CHATAX · Léonard Chatoux. Photos et visuels protégés, reproduction interdite sans accord.</p>
+    </div>
+  </footer>
+
+  <a class="fab" href="#contact" id="fab">Me contacter</a>
+
+  <!-- ============ PROJET OUVERT ============ -->
+  <div class="album" id="album" role="dialog" aria-modal="true" aria-labelledby="album-title" hidden>
+    <header class="album__bar">
+      <div class="wrap album__bar-inner">
+        <button class="album__back" id="album-back"><span aria-hidden="true">←</span> <span id="album-back-label">Projets</span></button>
+        <div class="album__title">
+          <h2 id="album-title">Projet</h2>
+          <p id="album-meta"></p>
+        </div>
+        <a class="btn btn--light btn--sm album__ext" id="album-link" target="_blank" rel="noopener" hidden></a>
+      </div>
+      <nav class="album__jump wrap" id="album-jump" aria-label="Sections du projet" hidden></nav>
+    </header>
+    <div class="album__body">
+      <div class="wrap">
+        <div id="album-sections"></div>
+        <div class="album__end">
+          <p>Un projet dans le même esprit ?</p>
+          <a class="btn btn--accent" href="#contact" id="album-cta">Discuter d'un projet <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Aperçu" hidden>
+    <button class="lightbox__close" id="lb-close" aria-label="Fermer">✕</button>
+    <button class="lightbox__nav lightbox__prev" id="lb-prev" aria-label="Précédent">←</button>
+    <figure>
+      <div class="lightbox__stage" id="lb-stage"></div>
+      <figcaption id="lb-cap"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__next" id="lb-next" aria-label="Suivant">→</button>
+  </div>
+
+  <script src="assets/js/projets.js?v=35" defer></script>
+  <script src="assets/js/main.js?v=35" defer></script>
+</body>
+</html>
