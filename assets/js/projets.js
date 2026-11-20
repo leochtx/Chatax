@@ -54,6 +54,7 @@ window.CHATAX_PROJECTS = [
 
   {
     key: "lisieux-24h",
+    coverFit: "contain", // affiche ou logo : montrée en entier
     photoCover: "cover-photo.jpg",
     category: "event",
     desc: "Communication et photos du tournoi de 24 heures de l'ASTT Lisieux, depuis cinq éditions.",
@@ -91,6 +92,7 @@ window.CHATAX_PROJECTS = [
 
   {
     key: "cdf-laval-2026",
+    coverFit: "contain", // affiche ou logo : montrée en entier
     photoCover: "cover-photo.jpg",
     category: "event",
     desc: "Reportage photo aux championnats de France de tennis de table, à Laval.",
@@ -101,6 +103,7 @@ window.CHATAX_PROJECTS = [
 
   {
     key: "cdf-universitaires",
+    coverFit: "contain", // affiche ou logo : montrée en entier
     photoCover: "cover-photo.jpg",
     category: "event",
     desc: "Reportage photo aux championnats de France universitaires 2026.",
@@ -111,6 +114,7 @@ window.CHATAX_PROJECTS = [
 
   {
     key: "spo-rouen",
+    coverFit: "contain", // affiche ou logo : montrée en entier
     category: "event",
     desc: "Bénévole communication et buvette pour les finales de Pro A, à la Kindarena de Rouen.",
     title: "SPO Rouen · Finales de Pro A",

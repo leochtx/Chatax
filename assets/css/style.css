@@ -679,3 +679,13 @@ figcaption, .story__fig figcaption, .cta__channels span, .collage__badge span, .
 /* albums : la barre du site reste visible au-dessus */
 body.album-on .nav { z-index: 85; }
 body.album-on .album { inset: var(--nav-h) 0 0; }
+
+/* couvertures de type affiche ou logo : montrées en entier sur un fond flouté */
+.rcard__media--contain .rcard__blur { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(18px) saturate(1.1); transform: scale(1.2); }
+.rcard__media--contain img:not(.rcard__blur) { position: relative; object-fit: contain; }
+
+/* mobile : réalisations en grandes cartes, une par ligne */
+@media (max-width: 759px) {
+  .projects[data-category]:has(.rcard) { grid-template-columns: 1fr; gap: 12px; }
+  .projects[data-category] .rcard { aspect-ratio: 16 / 11; }
+}

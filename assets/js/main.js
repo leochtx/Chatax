@@ -137,7 +137,7 @@
      ou au premier toucher (mobile), l'image s'assombrit et se floute, le titre et la description
      apparaissent. Deuxième toucher = ouverture. */
   const revealCard = (c, i) => `<button class="rcard ${c.cls || ""}" style="--i:${i}" ${c.attrs || ""} aria-label="${esc(c.title)} : ${esc(c.desc || c.kind || "")}">
-      <span class="rcard__media media"><img src="${c.src}" alt="" loading="lazy"></span>
+      <span class="rcard__media media${c.fit === "contain" ? " rcard__media--contain" : ""}">${c.fit === "contain" ? `<img class="rcard__blur" src="${c.src}" alt="" loading="lazy">` : ""}<img src="${c.src}" alt="" loading="lazy"></span>
       <span class="rcard__shade" aria-hidden="true"></span>
       ${c.play ? '<span class="play rcard__play" aria-hidden="true"></span>' : ""}
       <span class="rcard__info" aria-hidden="true">
@@ -149,14 +149,15 @@
     </button>`;
   const noHover = window.matchMedia("(hover: none)");
   const closeCards = (except) => $$(".rcard.is-on").forEach((x) => { if (x !== except) x.classList.toggle("is-on", false); });
-  const bindReveal = (root, action) => $$(".rcard", root).forEach((c) => c.addEventListener("click", () => {
-    if (noHover.matches && !c.classList.contains("is-on")) {
-      closeCards(c);
-      c.classList.add("is-on");
-      return;
-    }
-    action(c);
-  }));
+  // écran tactile : l'effet sombre s'affiche dès que le doigt touche la carte, un tap ouvre directement
+  const bindReveal = (root, action) => $$(".rcard", root).forEach((c) => {
+    let t;
+    c.addEventListener("touchstart", () => { clearTimeout(t); closeCards(c); c.classList.add("is-on"); }, { passive: true });
+    const off = () => { t = setTimeout(() => c.classList.remove("is-on"), 450); };
+    c.addEventListener("touchend", off, { passive: true });
+    c.addEventListener("touchcancel", off, { passive: true });
+    c.addEventListener("click", () => action(c));
+  });
   // toucher ailleurs referme la carte ouverte
   document.addEventListener("click", (e) => { if (!e.target.closest(".rcard")) closeCards(null); });
 
@@ -177,7 +178,7 @@
       shown = ranked.filter((p) => pinned.includes(p) || others.includes(p));
     }
     grid.innerHTML = shown.map((p, i) => revealCard({
-      attrs: `data-key="${p.key}"`, src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: p.title, desc: p.desc,
+      attrs: `data-key="${p.key}"`, src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: p.title, desc: p.desc, fit: p.coverFit,
     }, i)).join("");
     wire(grid);
     // sur l'accueil, une carte ouvre le projet sur la page Projets
