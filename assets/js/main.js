@@ -169,9 +169,12 @@
     let shown = list;
     if (grid.dataset.limit) {
       const n = Number(grid.dataset.limit);
-      const pinned = list.filter((p) => pins.includes(p.key));
-      const others = list.filter((p) => !pins.includes(p.key)).slice(0, Math.max(0, n - pinned.length));
-      shown = list.filter((p) => pinned.includes(p) || others.includes(p));
+      // accueil : les projets de communication (avec des visuels) d'abord, chacun dans l'ordre des dates
+      const isCom = (p) => total(p, T_VISUELS) > 0;
+      const ranked = [...list.filter(isCom), ...list.filter((p) => !isCom(p))];
+      const pinned = ranked.filter((p) => pins.includes(p.key));
+      const others = ranked.filter((p) => !pins.includes(p.key)).slice(0, Math.max(0, n - pinned.length));
+      shown = ranked.filter((p) => pinned.includes(p) || others.includes(p));
     }
     grid.innerHTML = shown.map((p, i) => revealCard({
       attrs: `data-key="${p.key}"`, src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: p.title, desc: p.desc,
