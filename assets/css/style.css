@@ -669,3 +669,9 @@ figcaption, .story__fig figcaption, .cta__channels span, .collage__badge span, .
 .hero__bg--full .hero__bg-full { z-index: 0; }
 .hero__bg--full::after { z-index: 1; }
 @media (max-width: 759px) { .hero--orange .hero__bg--full::after { background: linear-gradient(180deg, rgba(31, 33, 200, .55) 0%, rgba(42, 44, 226, .72) 55%, var(--bg) 100%); } }
+
+/* bandeau avec sujet détouré, posé devant le voile bleu */
+.pagehero--cutout { position: relative; }
+.pagehero__cutout { position: absolute; z-index: 0; right: max(2vw, calc((100vw - 1240px) / 2)); bottom: 0; height: calc(100% - var(--nav-h) - 8px); max-height: 600px; width: auto; pointer-events: none; filter: drop-shadow(0 20px 40px rgba(10, 12, 90, .45)); -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%); mask-image: linear-gradient(180deg, #000 82%, transparent 100%); }
+.pagehero--cutout > .wrap { position: relative; z-index: 1; }
+@media (max-width: 759px) { .pagehero__cutout { right: -64px; height: calc(100% - var(--nav-h) - 4px); opacity: .95; } .pagehero--cutout .hero__lead { max-width: 60%; } }
