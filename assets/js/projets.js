@@ -204,6 +204,7 @@ window.CHATAX_PROJECTS = [
     kind: "Service civique",
     photos: 45, visuels: 69, videos: 9,
     covers: { videos: "videos/009-poster.jpg" },
+    reel: "002", // vidéo montrée dans la page Services
     story: {
       lead: "Une saison en service civique à gérer toute la communication d'un club qui évolue au plus haut niveau, avec son équipe de Pro A Dames.",
       facts: [

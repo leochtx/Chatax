@@ -234,7 +234,8 @@
   const reelsEl = $("#reels");
   if (reelsEl) {
     VISIBLE.filter((p) => total(p, T_VIDEOS) > 0 && !hasParts(p)).forEach((p) => {
-      const pick = (p.covers && p.covers.videos) ? p.covers.videos.replace(/^videos\/|-poster\.jpg$/g, "") : "001";
+      // p.reel : la vidéo montrée dans la page Services (sinon celle de la couverture du dossier Vidéos)
+      const pick = p.reel || ((p.covers && p.covers.videos) ? p.covers.videos.replace(/^videos\/|-poster\.jpg$/g, "") : "001");
       const dir = `${base(p)}/videos`;
       REELS.push({ kind: "video", src: `${dir}/${pick}.mp4`, poster: `${dir}/${pick}-poster.jpg`, cap: p.title,
         card: { kind: `Vidéo · ${p.kind || ""}`, title: p.title, desc: p.desc, key: p.key } });
