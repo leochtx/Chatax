@@ -656,3 +656,16 @@ figcaption, .story__fig figcaption, .cta__channels span, .collage__badge span, .
 
 /* bas de page : Contact et Suivre seulement */
 @media (min-width: 800px) { .footer__grid { grid-template-columns: repeat(2, minmax(0, 260px)); gap: 64px; } }
+
+/* bandeau où l'on voit toute la photo (dézoomée), avec un fond flouté de la même image */
+.hero__bg--full .hero__bg-blur { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(24px); transform: scale(1.15); }
+.hero__bg--full .hero__bg-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: 72% 50%; }
+@media (max-width: 759px) { .hero__bg--full .hero__bg-full { object-position: 50% 50%; } }
+.hero--orange .hero__bg--full::after {
+  background:
+    linear-gradient(100deg, rgba(31, 33, 200, .92) 0%, rgba(42, 44, 226, .7) 42%, rgba(80, 82, 240, .32) 100%),
+    linear-gradient(180deg, rgba(42, 44, 226, 0) 0%, rgba(42, 44, 226, 0) 75%, var(--bg) 100%);
+}
+.hero__bg--full .hero__bg-full { z-index: 0; }
+.hero__bg--full::after { z-index: 1; }
+@media (max-width: 759px) { .hero--orange .hero__bg--full::after { background: linear-gradient(180deg, rgba(31, 33, 200, .55) 0%, rgba(42, 44, 226, .72) 55%, var(--bg) 100%); } }
