@@ -744,3 +744,8 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 .portfolio .wrap:has(.pgroups-duo) { max-width: 1360px; }
 @media (min-width: 960px) { .pgroups-duo { gap: 28px; } }
 @media (max-width: 759px) { .projects[data-category][data-limit]:has(.rcard) { grid-template-columns: 1fr; gap: 14px; } }
+
+/* slogan : sous le grand titre de l'accueil et en bas de chaque page */
+.hero__slogan { margin-top: 14px; font-weight: 700; font-style: italic; font-size: clamp(16px, 1.8vw, 20px); color: #fff; opacity: .95; }
+.footer__slogan { margin-top: 36px; font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(20px, 2.6vw, 30px); line-height: 1.05; color: #fff; }
+.footer__slogan + .footer__copy { margin-top: 14px; }
