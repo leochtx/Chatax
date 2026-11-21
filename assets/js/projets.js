@@ -165,7 +165,7 @@ window.CHATAX_PROJECTS = [
     desc: "Stage de Licence 2 : rendre visible un complexe de padel tout juste ouvert.",
     title: "Padelshot Rouen-Barentin",
     kind: "Stage · Licence 2",
-    photos: 16, visuels: 12, videos: 3,
+    photos: 16, visuels: 13, videos: 3,
     story: {
       lead: "Deux mois de stage dans un complexe de padel récemment ouvert, avec une mission claire : le rendre visible face à la concurrence locale.",
       facts: [
