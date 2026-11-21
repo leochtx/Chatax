@@ -731,3 +731,8 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 .punch--scroll { padding: 0; }
 .punch__slide { min-height: clamp(200px, 26vw, 300px); padding: clamp(32px, 5vw, 56px) 24px; gap: 16px; }
 .footer { padding-top: 48px; }
+
+/* trois formules */
+@media (min-width: 1000px) { .offers--3 { grid-template-columns: repeat(3, 1fr); } }
+.offers--3 .offer h3 { font-size: 28px; }
+.offers__note { margin-top: 22px; color: var(--muted); font-size: 15px; max-width: 70ch; }
