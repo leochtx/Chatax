@@ -714,3 +714,20 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 /* citations : ton parlé, en phrase normale plutôt qu'en capitales */
 .punch__text { font-family: var(--f-sans); text-transform: none; font-weight: 800; letter-spacing: -.01em; line-height: 1.18; font-size: clamp(24px, 3.2vw, 40px); max-width: 30ch; }
 .punch__text--big { font-size: clamp(30px, 4.6vw, 56px); max-width: 20ch; }
+
+/* espaces resserrés entre les parties (moins de blanc) */
+.section { padding-block: clamp(44px, 6vw, 80px); }
+.section__head { margin-bottom: clamp(24px, 3.5vw, 40px); }
+.strip, .reels { margin-top: clamp(28px, 4vw, 44px); }
+.pgroup + .pgroup { margin-top: clamp(36px, 5vw, 60px); }
+.cta { padding-top: clamp(36px, 5vw, 64px); }
+.more-row { margin-top: clamp(24px, 3.5vw, 40px); }
+.tools { margin-top: clamp(28px, 4vw, 44px); }
+.split { gap: 28px; }
+@media (min-width: 1000px) { .split { gap: 56px; } }
+.feature { gap: 28px; }
+.pagehero { padding-bottom: clamp(36px, 5vw, 64px); min-height: min(52vh, 480px); }
+.punch { padding: clamp(32px, 5vw, 56px) 0; }
+.punch--scroll { padding: 0; }
+.punch__slide { min-height: clamp(200px, 26vw, 300px); padding: clamp(32px, 5vw, 56px) 24px; gap: 16px; }
+.footer { padding-top: 48px; }
