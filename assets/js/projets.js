@@ -44,7 +44,7 @@ window.CHATAX_PROJECTS = [
       { key: "wattignies", title: "Tournoi de Wattignies", kind: "Tournoi · Août 2026", photos: 21 },
       { key: "merelbeke", title: "Tournoi de Merelbeke", kind: "Tournoi · Belgique · Août 2026", photos: 9 },
       { key: "wenduine", title: "Tournoi de Wenduine", kind: "Tournoi · Belgique · Août 2026", photos: 9 },
-      { key: "flers", title: "Tournoi de Flers", kind: "Tournoi · Mai 2026", photos: 18 },
+      { key: "flers", title: "Tournoi de Flers", kind: "Tournoi · Mai 2026", photos: 17 },
       { key: "grand-quevilly", title: "Tournoi international de Grand-Quevilly", kind: "Tournoi international · Mai 2026", photos: 14 },
       { key: "petit-quevilly", title: "Tournoi de Petit-Quevilly", kind: "Tournoi · Mai 2026", photos: 17 },
       { key: "laigle", title: "Tournoi de L'Aigle", kind: "Tournoi · Avril 2026", photos: 16 },
@@ -60,7 +60,7 @@ window.CHATAX_PROJECTS = [
     desc: "Communication et photos du tournoi de 24 heures de l'ASTT Lisieux, depuis cinq éditions.",
     title: "Les 24 h de Lisieux",
     kind: "Tournoi · ASTT Lisieux",
-    photos: 27, visuels: 20,
+    photos: 26, visuels: 20,
     story: {
       lead: "Un tournoi de tennis de table qui dure 24 heures non-stop. Depuis cinq ans, c'est moi qui en assure la communication.",
       facts: [
@@ -98,7 +98,7 @@ window.CHATAX_PROJECTS = [
     desc: "Reportage photo aux championnats de France de tennis de table, à Laval.",
     title: "Championnats de France · Laval 2026",
     kind: "Tennis de table · Photos",
-    photos: 71,
+    photos: 56,
   },
 
   {
