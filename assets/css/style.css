@@ -777,3 +777,8 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 .photoshow img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 599px) { .photoshow { grid-template-columns: 1fr 1fr; gap: 8px; } .photoshow figure:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 11; } }
 .photoshow__more { margin-top: 22px; }
+/* petite illustration à gauche de chaque catégorie */
+.acc > summary { justify-content: flex-start; }
+.acc__thumb { flex: none; width: 64px; height: 64px; border-radius: 14px; object-fit: cover; box-shadow: var(--shadow); }
+.acc__text { flex: 1; }
+@media (max-width: 599px) { .acc__thumb { width: 52px; height: 52px; border-radius: 12px; } .acc > summary { gap: 14px; } }
