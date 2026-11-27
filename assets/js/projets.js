@@ -37,7 +37,7 @@ window.CHATAX_PROJECTS = [
     desc: "Photos et vidéos du match de Pro A à la Kindarena de Rouen.",
     title: "SPO Rouen vs Alliance Nîmes-Montpellier TT",
     short: "SPO vs ANMTT",
-    reel: "reel", // vidéo montée montrée dans la page Services (videos/reel.mp4, hors de l'album)
+    reel: "reel-2", // vidéo montée montrée dans la page Services (videos/reel-2.mp4, hors de l'album)
     kind: "Pro A · Photos & vidéos",
     photos: 106, videos: 20,
     covers: { videos: "videos/001-poster.jpg" },
