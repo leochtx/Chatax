@@ -802,7 +802,8 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 
 /* accueil : les 4 carrés com' en petit sur téléphone (titre seul) */
 @media (max-width: 639px) {
-  .tiles--mini { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tiles--mini { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; min-width: 0; }
+  .tiles--mini .tilecard { min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
   .tiles--mini .tilecard { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; }
   .tiles--mini .tilecard h3 { font-size: 19px; line-height: 1.1; margin: 0; }
   .tiles--mini .tilecard p { display: none; }
@@ -846,3 +847,13 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 .rsq__d { font-size: clamp(11px, 1.5vw, 15px); line-height: 1.25; opacity: .85; margin-top: 4px; }
 .rsq:hover img { transform: scale(1.05); }
 .rsq:hover .rsq__t .h2-arrow { transform: translateX(6px); }
+
+/* FAQ : les 3 étapes en 3 petits carrés sur téléphone */
+@media (max-width: 639px) {
+  .tiles--mini3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .tiles--mini3 .tilecard { padding: 10px 8px; }
+  .tiles--mini3 .steps__n { margin-bottom: 2px; font-size: 12px; }
+  .steps.tiles--mini3 .tilecard h3 { font-size: 16px; }
+  .tiles--mini3 .tilecard p.tile-short { font-size: 11.5px; }
+}
+@media (max-width: 999px) { .split { grid-template-columns: minmax(0, 1fr); } }
