@@ -292,7 +292,7 @@
   const REELS = [];
   const reelsEl = $("#reels");
   if (reelsEl) {
-    VISIBLE.filter((p) => total(p, T_VIDEOS) > 0 && !hasParts(p)).forEach((p) => {
+    VISIBLE.filter((p) => total(p, T_VIDEOS) > 0 && !hasParts(p) && p.reel !== false).forEach((p) => {
       // p.reel : la vidéo montrée dans la page Services (sinon celle de la couverture du dossier Vidéos)
       const pick = p.reel || ((p.covers && p.covers.videos) ? p.covers.videos.replace(/^videos\/|-poster\.jpg$/g, "") : "001");
       const dir = `${base(p)}/videos`;
