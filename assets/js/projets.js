@@ -321,27 +321,31 @@ window.CHATAX_PROJECTS = [
   {
     key: "multiset-sport",
     category: "long",
-    desc: "Visuels et supports pour une boutique spécialisée, partenaire de Boumassa.",
+    desc: "Visuels, supports et photos pour une boutique spécialisée, partenaire de Boumassa.",
     title: "Multiset Sport",
     kind: "Boutique spécialisée",
-    visuels: 9,
+    photos: 33, visuels: 9,
     story: {
       lead: "Des visuels pour un magasin spécialisé en tennis de table, badminton et squash, partenaire de Boumassa.",
       facts: [
         { k: "Client", v: "Multiset Sport, Rouen" },
         { k: "Lien", v: "Sponsor de Boumassa" },
-        { k: "Livrables", v: "Visuels réseaux & supports" },
+        { k: "Livrables", v: "Visuels réseaux, supports & photos" },
       ],
       text: [
         "Multiset Sport accompagne le projet Boumassa. En retour, j'ai réalisé des supports pour la boutique : bannières aux couleurs de la marque, carte de contact, annonces d'horaires et publications pour mettre en avant les nouveautés et les promotions.",
         "L'objectif : des visuels simples, lisibles et cohérents avec l'identité bleu et jaune de la marque, prêts à être publiés.",
+        "Une séance photo dans la boutique complète le tout : les rayons, le matériel et l'équipe, pour illustrer les publications avec de vraies images du magasin.",
       ],
       missions: [
         "Bannières et supports aux couleurs de la marque",
         "Publications promotionnelles",
         "Annonces pratiques (horaires, nouveautés)",
+        "Photos de la boutique, du matériel et de l'équipe",
       ],
       illustrations: [
+        { src: "photos/007.jpg", cap: "L'équipe de la boutique" },
+        { src: "photos/014.jpg", cap: "Le rayon padel" },
         { src: "visuels/006.jpg", cap: "Publication promotionnelle" },
         { src: "visuels/009.jpg", cap: "Annonce des horaires" },
         { src: "visuels/007.jpg", cap: "Nouvelle collection" },
