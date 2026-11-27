@@ -105,12 +105,15 @@
   const T_VIDEOS = { id: "videos", label: "Vidéos", one: "vidéo", many: "vidéos" };
   const TYPES = [T_VISUELS, T_PHOTOS, T_VIDEOS];
   const plural = (t, n) => `${n} ${n > 1 ? t.many : t.one}`;
+  // « 1 match », « 2 matchs » : le libellé des dossiers perd son s au singulier
+  const partsN = (p, n) => { const w = p.partsLabel || "dossiers"; return `${n} ${n > 1 ? w : w.replace(/s$/, "")}`; };
   const base = (p) => `assets/projets/${p.key}`;
   // version des couvertures : à augmenter dans projets.js après avoir remplacé une cover.jpg
   const CV = "?v=" + (window.CHATAX_COVERS_VERSION || 1);
   const hasParts = (p) => !!(p.parts && p.parts.length);
   const groupsOf = (p) => hasParts(p)
-    ? p.parts.map((g) => ({ ...g, dir: `${base(p)}/${g.key}` }))
+    // dir : un dossier peut reprendre les fichiers d'un autre projet (ex. PRO B → lmtt/vs-amiens)
+    ? p.parts.map((g) => ({ ...g, dir: g.dir ? `assets/projets/${g.dir}` : `${base(p)}/${g.key}` }))
     : [{ ...p, key: null, title: null, dir: base(p) }];
   const count = (g, t) => g[t.id] || 0;
   const total = (p, t) => groupsOf(p).reduce((s, g) => s + count(g, t), 0);
@@ -126,7 +129,7 @@
   });
 
   const badges = (p) => {
-    const parts = hasParts(p) ? `<span class="badge badge--parts">${p.parts.filter((g) => typesOfGroup(g).length).length} ${esc(p.partsLabel || "dossiers")}</span>` : "";
+    const parts = hasParts(p) ? `<span class="badge badge--parts">${esc(partsN(p, p.parts.filter((g) => typesOfGroup(g).length).length))}</span>` : "";
     return parts + typesOf(p).map((t) => `<span class="badge badge--${t.id}">${plural(t, total(p, t))}</span>`).join("");
   };
   const card = (opts, i) => `<button class="pcard" style="--i:${i}" ${opts.attrs}>
@@ -198,10 +201,12 @@
   const strip = $("#strip");
   if (strip) {
     const items = [];
-    // ordre : LMTT, puis l'album Tournois, puis les autres reportages
-    const rank = (p) => (p.key === "lmtt" ? 0 : p.key === "tennis-de-table" ? 1 : (p.category || "long") === "long" ? 2 : 3);
+    // ordre : Pro A, Pro B, Ligue des champions, puis l'album Tournois, puis les autres reportages
+    const FIRST = ["pro-a", "pro-b", "ligue-des-champions", "tennis-de-table"];
+    const rank = (p) => (FIRST.includes(p.key) ? FIRST.indexOf(p.key) : (p.category || "long") === "long" ? 10 : 11);
     // bande Photo : uniquement les reportages 100 % photo (aucun visuel) ; les projets de com restent dans Projets
-    VISIBLE.filter((p) => total(p, T_PHOTOS) > 0 && total(p, T_VISUELS) === 0)
+    // strip: false → projet gardé hors de la bande (ex. LMTT, déjà réparti dans Pro B et Ligue des champions)
+    VISIBLE.filter((p) => p.strip !== false && total(p, T_PHOTOS) > 0 && total(p, T_VISUELS) === 0)
       .map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map((x) => x.p)
       .forEach((p) => {
       if (p.folders && hasParts(p)) {
@@ -209,7 +214,7 @@
         const n = groupsOf(p).length;
         items.push({ key: p.key, part: "", src: `${base(p)}/cover.jpg${CV}`, kind: p.kind,
           title: p.key === "tennis-de-table" ? "Tournois" : p.title,
-          desc: `${n} ${p.partsLabel || "dossiers"} · ${plural(T_PHOTOS, total(p, T_PHOTOS))}` });
+          desc: `${partsN(p, n)} · ${plural(T_PHOTOS, total(p, T_PHOTOS))}` });
       } else {
         items.push({ key: p.key, part: "", src: `${base(p)}/${p.photoCover || "cover.jpg"}${CV}`, kind: p.kind, title: p.title,
           desc: `${plural(T_PHOTOS, total(p, T_PHOTOS))}${p.desc ? " · " + p.desc : ""}` });
@@ -307,11 +312,11 @@
     if (p.folders && hasParts(p) && !partKey) {
       const groups = groupsOf(p).filter((g) => typesOfGroup(g).length);
       $("#album-title").textContent = p.title;
-      $("#album-meta").textContent = [p.kind, `${groups.length} ${p.partsLabel || "dossiers"}`, ...typesOf(p).map((t) => plural(t, total(p, t)))].join(" · ");
+      $("#album-meta").textContent = [p.kind, partsN(p, groups.length), ...typesOf(p).map((t) => plural(t, total(p, t)))].join(" · ");
       jump.hidden = true; jump.innerHTML = "";
       sectionsEl.innerHTML = `<div class="projects projects--folders">${groups.map((g, i) => card({
         attrs: `data-part="${g.key}" aria-label="Ouvrir le dossier ${esc(g.title)}"`,
-        cover: `${g.dir}/cover.jpg${CV}`, kind: g.kind, title: g.title,
+        cover: `${g.cover ? `${base(p)}/${g.cover}` : `${g.dir}/cover.jpg`}${CV}`, kind: g.kind, title: g.title,
         badges: typesOfGroup(g).map((t) => `<span class="badge badge--${t.id}">${plural(t, count(g, t))}</span>`).join(""),
       }, i)).join("")}</div>`;
       wire(sectionsEl);

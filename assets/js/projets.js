@@ -24,7 +24,7 @@
      illustrations : chemin relatif au dossier du projet + légende.
    ========================================================= */
 // À augmenter (2, 3, 4…) après avoir remplacé une image cover.jpg, pour que les visiteurs voient la nouvelle.
-window.CHATAX_COVERS_VERSION = 9;
+window.CHATAX_COVERS_VERSION = 10;
 
 window.CHATAX_PROJECTS = [
   /* ---------------- ÉVÉNEMENTS (du plus récent au plus ancien) ---------------- */
@@ -143,9 +143,54 @@ window.CHATAX_PROJECTS = [
     },
   },
 
+  /* ---------------- ALBUMS PHOTO (section Photo uniquement) ----------------
+     category "photo" : n'apparaît ni dans Projets ni dans Événements.
+     dir : dossier repris d'un autre projet (les photos ne sont pas copiées deux fois).
+     cover : couverture du dossier, chemin relatif au dossier de l'album. */
+  {
+    key: "pro-a",
+    category: "photo",
+    title: "Pro A",
+    kind: "Tennis de table · Photos",
+    desc: "Les matchs de Pro A, le plus haut niveau français.",
+    folders: true,
+    partsLabel: "matchs",
+    parts: [
+      { key: "spo-anmtt", title: "SPO Rouen vs Alliance Nîmes-Montpellier TT", kind: "Pro A · 24.11.2026", photos: 106, videos: 20 },
+      { key: "alcl", dir: "alcl-grand-quevilly", cover: "alcl-cover.jpg", title: "ALCL Grand-Quevilly", kind: "Pro A Dames · 02.04.2026", photos: 45 },
+    ],
+  },
+
+  {
+    key: "pro-b",
+    category: "photo",
+    title: "Pro B",
+    kind: "Tennis de table · Photos",
+    desc: "Les matchs de Pro B.",
+    folders: true,
+    partsLabel: "matchs",
+    parts: [
+      { key: "vs-amiens", dir: "lmtt/vs-amiens", title: "LMTT vs Amiens", kind: "Pro B · 22.09.2026", photos: 82 },
+    ],
+  },
+
+  {
+    key: "ligue-des-champions",
+    category: "photo",
+    title: "Ligue des champions",
+    kind: "Tennis de table · Photos",
+    desc: "Les soirées européennes.",
+    folders: true,
+    partsLabel: "matchs",
+    parts: [
+      { key: "vs-saarbrucken", dir: "lmtt/vs-saarbrucken", title: "LMTT vs Saarbrücken", kind: "Ligue des champions · 13.11.2026", photos: 53 },
+    ],
+  },
+
   /* ---------------- ACCOMPAGNEMENT (du plus récent au plus ancien) ---------------- */
   {
     key: "lmtt",
+    strip: false, // ses deux matchs sont dans les albums Pro B et Ligue des champions
     category: "long",
     desc: "Reportages photo des matchs du club, jusqu'en Ligue des champions.",
     title: "Lille Métropole Tennis de Table",
