@@ -24,10 +24,24 @@
      illustrations : chemin relatif au dossier du projet + légende.
    ========================================================= */
 // À augmenter (2, 3, 4…) après avoir remplacé une image cover.jpg, pour que les visiteurs voient la nouvelle.
-window.CHATAX_COVERS_VERSION = 10;
+window.CHATAX_COVERS_VERSION = 11;
 
 window.CHATAX_PROJECTS = [
   /* ---------------- ÉVÉNEMENTS (du plus récent au plus ancien) ---------------- */
+  {
+    key: "spo-anmtt",
+    category: "event",
+    strip: false, // ses photos sont déjà dans l'album Pro A (catégorie Photos)
+    date: "24 novembre 2026",
+    coverPos: "50% 30%",
+    desc: "Photos et vidéos du match de Pro A à la Kindarena de Rouen.",
+    title: "SPO Rouen vs Alliance Nîmes-Montpellier TT",
+    short: "SPO vs ANMTT",
+    kind: "Pro A · Photos & vidéos",
+    photos: 106, videos: 20,
+    covers: { videos: "videos/001-poster.jpg" },
+  },
+
   {
     key: "tennis-de-table",
     category: "photo", // album photo seulement (catégorie Photos)
@@ -158,7 +172,7 @@ window.CHATAX_PROJECTS = [
     folders: true,
     partsLabel: "matchs",
     parts: [
-      { key: "spo-anmtt", title: "SPO Rouen vs Alliance Nîmes-Montpellier TT", kind: "Pro A · 24.11.2026", photos: 106, videos: 20 },
+      { key: "spo-anmtt", dir: "spo-anmtt", title: "SPO Rouen vs Alliance Nîmes-Montpellier TT", kind: "Pro A · 24.11.2026", photos: 106 },
       { key: "alcl", dir: "alcl-grand-quevilly", cover: "alcl-cover.jpg", title: "ALCL Grand-Quevilly vs Quimper", kind: "Pro A Dames · 02.04.2026", photos: 45 },
     ],
   },
