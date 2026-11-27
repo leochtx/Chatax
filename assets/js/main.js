@@ -149,6 +149,7 @@
       <span class="rcard__media media${c.fit === "contain" ? " rcard__media--contain" : ""}">${c.fit === "contain" ? `<img class="rcard__blur" src="${c.src}" alt="" loading="lazy">` : ""}<img src="${c.src}" alt="" loading="lazy"${c.pos ? ` style="object-position:${c.pos}"` : ""}></span>
       <span class="rcard__shade" aria-hidden="true"></span>
       ${c.play ? '<span class="play rcard__play" aria-hidden="true"></span>' : ""}
+      ${c.date ? `<span class="rcard__date">${esc(c.date)}</span>` : ""}
       <span class="rcard__info" aria-hidden="true">
         <span class="rcard__kind">${esc(c.kind || "")}</span>
         <span class="rcard__title">${esc(c.title)}</span>
@@ -172,7 +173,10 @@
 
   /* Portfolio : Événements / Projets au long cours */
   $$(".projects[data-category]").forEach((grid) => {
-    const list = VISIBLE.filter((p) => (p.category || "long") === grid.dataset.category);
+    // un événement avec seulement des photos (ni visuel ni vidéo) va dans les albums Photos, pas dans Événements
+    const photoOnly = (p) => total(p, T_VISUELS) === 0 && total(p, T_VIDEOS) === 0;
+    const list = VISIBLE.filter((p) => (p.category || "long") === grid.dataset.category
+      && !(grid.dataset.category === "event" && photoOnly(p)));
     // sur l'accueil, data-limit n'affiche qu'une sélection ; la page Projets montre tout
     // data-pin : projets toujours présents dans la sélection (ex. les tournois)
     const pins = (grid.dataset.pin || "").split(",").filter(Boolean);
@@ -187,7 +191,7 @@
       shown = ranked.filter((p) => pinned.includes(p) || others.includes(p));
     }
     grid.innerHTML = shown.map((p, i) => revealCard({
-      attrs: `data-key="${p.key}"`, src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: p.title, desc: p.desc, fit: p.coverFit, pos: p.coverPos,
+      attrs: `data-key="${p.key}"`, src: `${base(p)}/cover.jpg${CV}`, kind: p.kind, title: p.title, desc: p.desc, fit: p.coverFit, pos: p.coverPos, date: grid.dataset.category === "event" ? p.date : "",
     }, i)).join("");
     wire(grid);
     // sur l'accueil, une carte ouvre le projet sur la page Projets

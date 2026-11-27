@@ -54,6 +54,7 @@ window.CHATAX_PROJECTS = [
 
   {
     key: "lisieux-24h",
+    date: "27–28 juin 2026", // affichée sur la couverture (Événements)
     coverFit: "contain", // affiche ou logo : montrée en entier
     photoCover: "cover-photo.jpg",
     category: "event",
@@ -114,6 +115,7 @@ window.CHATAX_PROJECTS = [
 
   {
     key: "spo-rouen",
+    date: "29 juin 2025",
     coverFit: "contain", // affiche ou logo : montrée en entier
     category: "event",
     desc: "Bénévole communication et buvette pour les finales de Pro A, à la Kindarena de Rouen.",
@@ -157,7 +159,7 @@ window.CHATAX_PROJECTS = [
     partsLabel: "matchs",
     parts: [
       { key: "spo-anmtt", title: "SPO Rouen vs Alliance Nîmes-Montpellier TT", kind: "Pro A · 24.11.2026", photos: 106, videos: 20 },
-      { key: "alcl", dir: "alcl-grand-quevilly", cover: "alcl-cover.jpg", title: "ALCL Grand-Quevilly", kind: "Pro A Dames · 02.04.2026", photos: 45 },
+      { key: "alcl", dir: "alcl-grand-quevilly", cover: "alcl-cover.jpg", title: "ALCL Grand-Quevilly vs Quimper", kind: "Pro A Dames · 02.04.2026", photos: 45 },
     ],
   },
 
