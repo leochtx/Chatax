@@ -807,3 +807,18 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
   .tiles--mini .tilecard h3 { font-size: 19px; line-height: 1.1; margin: 0; }
   .tiles--mini .tilecard p { display: none; }
 }
+
+/* accueil, téléphone : Projets / Événements en 2 petits carrés cliquables, sans exemples */
+@media (max-width: 639px) {
+  .portfolio .pgroups-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .portfolio .pgroup { margin: 0; }
+  .portfolio .pgroup .projects, .portfolio .pgroup__head p { display: none; }
+  .portfolio .pgroup__head {
+    position: relative; aspect-ratio: 1; margin: 0; padding: 14px;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow);
+    border: 1px solid var(--line); border-left: 4px solid var(--orange);
+  }
+  .portfolio .pgroup__head h3 { font-size: 19px; line-height: 1.1; margin: 0; }
+  .portfolio .pgroup__head .h3-link::after { content: ""; position: absolute; inset: 0; }
+}
