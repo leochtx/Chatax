@@ -793,3 +793,7 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 .strip__nav .roundbtn:disabled { opacity: .35; cursor: default; }
 .strip__spacer { flex: 0 0 auto; height: 1px; }
 .strip__track { margin-inline: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); padding-inline: 0; scroll-padding-inline: 0; }
+.h3-link { color: inherit; transition: color .2s; }
+.h3-link .h2-arrow { display: inline-block; font-size: .7em; vertical-align: middle; color: #2a2ce2; transition: transform .25s var(--ease); }
+.h3-link:hover { color: #2a2ce2; }
+.h3-link:hover .h2-arrow { transform: translateX(6px); }
