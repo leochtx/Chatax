@@ -857,3 +857,9 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
   .tiles--mini3 .tilecard p.tile-short { font-size: 11.5px; }
 }
 @media (max-width: 999px) { .split { grid-template-columns: minmax(0, 1fr); } }
+
+/* Réalisations : Projets et Événements présentés comme les albums photo, cartes un peu plus petites */
+.accs .projects:has(.rcard) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.accs .projects .rcard { aspect-ratio: 4 / 5; }
+@media (min-width: 760px) { .accs .projects:has(.rcard) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } }
+@media (min-width: 1100px) { .accs .projects:has(.rcard) { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
