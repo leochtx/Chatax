@@ -30,7 +30,7 @@ window.CHATAX_PROJECTS = [
   /* ---------------- ÉVÉNEMENTS (du plus récent au plus ancien) ---------------- */
   {
     key: "tennis-de-table",
-    category: "event",
+    category: "photo", // album photo seulement (catégorie Photos)
     desc: "Reportages photo sur des tournois de tennis de table, en France et en Belgique.",
     title: "Tournois de tennis de table",
     short: "Tournois",
