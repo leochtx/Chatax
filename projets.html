@@ -14,12 +14,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://chataxoff.vercel.app/assets/img/partage.jpg">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="assets/img/brand/favicon.png?v=76">
+  <link rel="icon" type="image/png" href="assets/img/brand/favicon.png?v=78">
   <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=76">
+  <link rel="stylesheet" href="assets/css/style.css?v=78">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -62,25 +62,39 @@
     <!-- ============ PORTFOLIO (PROJETS) ============ -->
     <section class="section portfolio" id="portfolio">
       <div class="wrap">
-        <div class="section__head">
-          <p class="kicker reveal">Réalisations</p>
-          <h2 class="h2 reveal">Mes <em>projets</em></h2>
-        </div>
 
-        <!-- cartes remplies par main.js à partir de assets/js/projets.js -->
-        <div class="pgroup" id="long-cours">
-          <div class="pgroup__head reveal">
-            <h3>Projets</h3>
-            <p>Plusieurs mois aux côtés d'un club, d'un joueur, d'une association ou d'une marque.</p>
-          </div>
-          <div class="projects" data-category="long"></div>
-        </div>
-        <div class="pgroup" id="evenements">
-          <div class="pgroup__head reveal">
-            <h3>Événements</h3>
-            <p>Un tournoi, une finale, un championnat. Raconté des poules jusqu'à la dernière balle.</p>
-          </div>
-          <div class="projects" data-category="event"></div>
+        <!-- catégories repliables ; cartes remplies par main.js à partir de assets/js/projets.js -->
+        <div class="accs reveal">
+          <details class="acc" id="long-cours">
+            <summary>
+              <span class="acc__text">
+                <span class="acc__title">Projets <span class="acc__count"></span></span>
+                <span class="acc__desc">Un accompagnement suivi dans la durée, sur une période donnée.</span>
+              </span>
+              <span class="acc__arrow" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__body"><div class="projects" data-category="long"></div></div>
+          </details>
+          <details class="acc" id="evenements">
+            <summary>
+              <span class="acc__text">
+                <span class="acc__title">Événements <span class="acc__count"></span></span>
+                <span class="acc__desc">La communication et la couverture d'une journée : un tournoi, une rencontre, un temps fort.</span>
+              </span>
+              <span class="acc__arrow" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__body"><div class="projects" data-category="event"></div></div>
+          </details>
+          <details class="acc" id="photos">
+            <summary>
+              <span class="acc__text">
+                <span class="acc__title">Photos <span class="acc__count"></span></span>
+                <span class="acc__desc">Les albums photo : matchs, tournois, championnats.</span>
+              </span>
+              <span class="acc__arrow" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__body"><div class="projects" data-albums></div></div>
+          </details>
         </div>
 
       </div>
@@ -199,7 +213,7 @@
     <button class="lightbox__nav lightbox__next" id="lb-next" aria-label="Suivant">→</button>
   </div>
 
-  <script src="assets/js/projets.js?v=77" defer></script>
-  <script src="assets/js/main.js?v=77" defer></script>
+  <script src="assets/js/projets.js?v=78" defer></script>
+  <script src="assets/js/main.js?v=79" defer></script>
 </body>
 </html>

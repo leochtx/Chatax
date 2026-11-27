@@ -194,45 +194,67 @@
     bindReveal(grid, (c) => grid.dataset.limit
       ? (location.href = `projets.html#projet/${c.dataset.key}`)
       : openProject(c.dataset.key));
-    if (!list.length) grid.closest(".pgroup").hidden = true;
+    if (!list.length) { const box = grid.closest(".pgroup, .acc"); if (box) box.hidden = true; }
   });
 
-  /* Bande de photos défilante (section Photo) : un reportage par carte */
-  const strip = $("#strip");
-  if (strip) {
+  /* Albums photo : la bande défilante de l'accueil et la catégorie Photos de Réalisations */
+  const photoAlbums = () => {
     const items = [];
     // ordre : Pro A, Pro B, Ligue des champions, puis l'album Tournois, puis les autres reportages
     const FIRST = ["pro-a", "pro-b", "ligue-des-champions", "tennis-de-table"];
     const rank = (p) => (FIRST.includes(p.key) ? FIRST.indexOf(p.key) : (p.category || "long") === "long" ? 10 : 11);
-    // bande Photo : uniquement les reportages 100 % photo (aucun visuel) ; les projets de com restent dans Projets
-    // strip: false → projet gardé hors de la bande (ex. LMTT, déjà réparti dans Pro B et Ligue des champions)
+    // uniquement les reportages 100 % photo (aucun visuel) ; les projets de com restent dans Projets
+    // strip: false → projet gardé hors des albums (ex. LMTT, déjà réparti dans Pro B et Ligue des champions)
     VISIBLE.filter((p) => p.strip !== false && total(p, T_PHOTOS) > 0 && total(p, T_VISUELS) === 0)
       .map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map((x) => x.p)
       .forEach((p) => {
       if (p.folders && hasParts(p)) {
-        // un seul dossier par projet (tous les tournois, tous les matchs LMTT)
         const n = groupsOf(p).length;
-        items.push({ key: p.key, part: "", src: `${base(p)}/cover.jpg${CV}`, kind: p.kind,
+        items.push({ key: p.key, src: `${base(p)}/cover.jpg${CV}`, kind: p.kind,
           title: p.key === "tennis-de-table" ? "Tournois" : p.title,
           desc: `${partsN(p, n)} · ${plural(T_PHOTOS, total(p, T_PHOTOS))}` });
       } else {
-        items.push({ key: p.key, part: "", src: `${base(p)}/${p.photoCover || "cover.jpg"}${CV}`, kind: p.kind, title: p.title,
+        items.push({ key: p.key, src: `${base(p)}/${p.photoCover || "cover.jpg"}${CV}`, kind: p.kind, title: p.title,
           desc: `${plural(T_PHOTOS, total(p, T_PHOTOS))}${p.desc ? " · " + p.desc : ""}` });
       }
     });
-    strip.innerHTML = items.map((it, i) => revealCard({
-      cls: "rcard--strip", attrs: `data-key="${it.key}" data-part="${it.part}"`,
+    return items;
+  };
+  const albumCards = (root, cls, pos) => {
+    root.innerHTML = photoAlbums().map((it, i) => revealCard({
+      cls, attrs: `data-key="${it.key}"`, pos,
       src: it.src, kind: it.kind, title: it.title, desc: it.desc, cta: "Voir les photos",
     }, i)).join("");
-    wire(strip);
-    bindReveal(strip, (c) => {
-      openProject(c.dataset.key);
-      if (c.dataset.part) openProject(c.dataset.key, c.dataset.part);
-    });
+    wire(root);
+    bindReveal(root, (c) => openProject(c.dataset.key));
+  };
+
+  const strip = $("#strip");
+  if (strip) {
+    albumCards(strip, "rcard--strip");
     const step = () => ($(".rcard", strip) || { offsetWidth: 300 }).offsetWidth + 16;
     $("#strip-prev").addEventListener("click", () => strip.scrollBy({ left: -step() * 2, behavior: "smooth" }));
     $("#strip-next").addEventListener("click", () => strip.scrollBy({ left: step() * 2, behavior: "smooth" }));
   }
+  // Réalisations : grille des albums dans la catégorie Photos
+  $$(".projects[data-albums]").forEach((grid) => albumCards(grid, "", "50% 25%"));
+
+  /* Réalisations : catégories repliables (Projets, Événements, Photos)
+     nombre d'éléments affiché à côté du titre ; projets.html#photos ouvre directement la catégorie */
+  $$("details.acc").forEach((d) => {
+    const c = $(".acc__count", d);
+    if (c) c.textContent = $$(".rcard", d).length;
+  });
+  const openAcc = () => {
+    const d = location.hash && document.getElementById(location.hash.slice(1));
+    if (!d || !d.matches("details.acc")) return;
+    d.open = true;
+    // après le chargement complet (sinon le navigateur remet la page en haut)
+    const go = () => setTimeout(() => d.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
+    if (document.readyState === "complete") go(); else window.addEventListener("load", go, { once: true });
+  };
+  openAcc();
+  window.addEventListener("hashchange", openAcc);
 
   /* Vidéos (section Vidéo) : une vidéo par projet, lue dans la visionneuse */
   const REELS = [];
