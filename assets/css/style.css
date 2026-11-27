@@ -884,3 +884,13 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
   .photoshow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
   .photoshow figure:first-child { grid-column: auto; aspect-ratio: 4 / 5; }
 }
+
+/* Services, téléphone : les vidéos toutes visibles côte à côte, sans défilement */
+@media (max-width: 640px) {
+  .reels { grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 8px; overflow: visible; margin-inline: 0; padding: 0; scroll-snap-type: none; }
+  .reels .rcard__info { padding: 8px 8px 10px; gap: 3px; }
+  .reels .rcard__title { font-size: 13px; }
+  .reels .rcard__kind { font-size: 8.5px; }
+  .reels .rcard__desc, .reels .rcard__cta { display: none; }
+  .reels .rcard__play { transform: scale(.75); }
+}
