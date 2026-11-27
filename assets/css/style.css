@@ -822,3 +822,15 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
   .portfolio .pgroup__head h3 { font-size: 19px; line-height: 1.1; margin: 0; }
   .portfolio .pgroup__head .h3-link::after { content: ""; position: absolute; inset: 0; }
 }
+
+/* textes courts des petits carrés (téléphone seulement) et photos Projets / Événements */
+.tile-short, .pgroup__pic { display: none; }
+@media (max-width: 639px) {
+  .tiles--mini .tilecard { flex-direction: column; gap: 6px; }
+  .tiles--mini .tilecard p.tile-short { display: block; font-size: 13px; line-height: 1.3; color: var(--muted); }
+  .portfolio .pgroup__head { overflow: hidden; align-items: flex-end; justify-content: flex-start; text-align: left; padding: 12px; border: 0; }
+  .portfolio .pgroup__head { isolation: isolate; flex-direction: column; justify-content: flex-end; align-items: flex-start; }
+  .portfolio .pgroup__pic { display: block; position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; }
+  .portfolio .pgroup__head::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(10,12,40,.85), rgba(10,12,40,.1) 60%); }
+  .portfolio .pgroup__head .h3-link, .portfolio .pgroup__head .h3-link .h2-arrow { color: #fff; }
+}
