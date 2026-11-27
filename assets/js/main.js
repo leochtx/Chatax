@@ -236,9 +236,37 @@
   const strip = $("#strip");
   if (strip) {
     albumCards(strip, "rcard--strip");
-    const step = () => ($(".rcard", strip) || { offsetWidth: 300 }).offsetWidth + 16;
-    $("#strip-prev").addEventListener("click", () => strip.scrollBy({ left: -step() * 2, behavior: "smooth" }));
-    $("#strip-next").addEventListener("click", () => strip.scrollBy({ left: step() * 2, behavior: "smooth" }));
+    // une page = le nombre d'albums visibles (--per dans le CSS : 4, ou 2 sur téléphone)
+    const page = () => {
+      const cs = getComputedStyle(strip);
+      const per = parseInt(cs.getPropertyValue("--per"), 10) || 4;
+      const card = ($(".rcard", strip) || { offsetWidth: 300 }).offsetWidth;
+      return per * (card + parseFloat(cs.columnGap || cs.gap || 16));
+    };
+    const prev = $("#strip-prev"), next = $("#strip-next");
+    // espace vide en fin de bande : la dernière page commence bien par ses albums (ex. 2 sur 6)
+    const spacer = document.createElement("span");
+    spacer.className = "strip__spacer"; spacer.setAttribute("aria-hidden", "true");
+    strip.appendChild(spacer);
+    const fitEnd = () => {
+      const per = parseInt(getComputedStyle(strip).getPropertyValue("--per"), 10) || 4;
+      const n = $$(".rcard", strip).length;
+      const missing = n > per ? (per - (n % per)) % per : 0;
+      const card = ($(".rcard", strip) || { offsetWidth: 0 }).offsetWidth;
+      const gap = parseFloat(getComputedStyle(strip).columnGap) || 16;
+      spacer.style.width = missing ? `${missing * (card + gap) - gap}px` : "0px";
+    };
+    fitEnd();
+    window.addEventListener("resize", fitEnd);
+    const update = () => {
+      prev.disabled = strip.scrollLeft < 4;
+      next.disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4;
+    };
+    prev.addEventListener("click", () => strip.scrollBy({ left: -page(), behavior: "smooth" }));
+    next.addEventListener("click", () => strip.scrollBy({ left: page(), behavior: "smooth" }));
+    strip.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
   }
   // Réalisations : grille des albums dans la catégorie Photos
   $$(".projects[data-albums]").forEach((grid) => albumCards(grid, "", "50% 25%"));

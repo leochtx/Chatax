@@ -785,3 +785,11 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 /* date sur la couverture des événements */
 .rcard__date { position: absolute; top: 12px; left: 12px; z-index: 2; padding: 6px 11px; border-radius: 999px; background: rgba(255,255,255,.94); color: var(--navy); font-size: 12px; font-weight: 700; letter-spacing: .01em; line-height: 1; box-shadow: 0 4px 14px rgba(20,23,43,.18); pointer-events: none; }
 @media (max-width: 599px) { .rcard__date { top: 9px; left: 9px; padding: 5px 9px; font-size: 11px; } }
+
+/* Accueil, bande Photo : 4 albums visibles (2 sur téléphone), les flèches avancent d'une page entière */
+.strip__track { --per: 4; --sgap: 16px; gap: var(--sgap); }
+.strip__track .rcard--strip { width: calc((min(100vw, var(--maxw)) - 2 * var(--gutter) - (var(--per) - 1) * var(--sgap)) / var(--per)); }
+@media (max-width: 599px) { .strip__track { --per: 2; --sgap: 10px; } }
+.strip__nav .roundbtn:disabled { opacity: .35; cursor: default; }
+.strip__spacer { flex: 0 0 auto; height: 1px; }
+.strip__track { margin-inline: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); padding-inline: 0; scroll-padding-inline: 0; }
