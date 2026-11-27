@@ -2,6 +2,29 @@
 (function () {
   "use strict";
 
+  /* Vidéo de fond de l'accueil : toujours en lecture, en boucle.
+     Le navigateur peut la mettre en pause (onglet caché, retour arrière, mode économie d'énergie
+     sur iPhone, vidéo sortie de l'écran) : on la relance à chaque fois, et au premier toucher. */
+  const heroVideo = document.getElementById("hero-video");
+  if (heroVideo) {
+    heroVideo.muted = true; heroVideo.loop = true;
+    const keepPlaying = () => {
+      if (document.hidden || !heroVideo.paused) return;
+      const p = heroVideo.play();
+      if (p && p.catch) p.catch(() => {});
+    };
+    heroVideo.addEventListener("pause", () => setTimeout(keepPlaying, 50));
+    heroVideo.addEventListener("ended", () => { heroVideo.currentTime = 0; keepPlaying(); });
+    ["canplay", "loadeddata"].forEach((e) => heroVideo.addEventListener(e, keepPlaying));
+    document.addEventListener("visibilitychange", keepPlaying);
+    window.addEventListener("pageshow", keepPlaying);
+    window.addEventListener("focus", keepPlaying);
+    // iPhone en économie d'énergie : la lecture n'est autorisée qu'après un geste
+    ["touchstart", "pointerdown", "scroll", "keydown"].forEach((e) => window.addEventListener(e, keepPlaying, { passive: true }));
+    setInterval(keepPlaying, 2000);
+    keepPlaying();
+  }
+
   /* Actualiser la page = revenir tout en haut (sans projet ouvert ni ancre) */
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   const navEntry = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];

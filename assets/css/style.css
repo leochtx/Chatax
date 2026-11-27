@@ -503,7 +503,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 999px) {
   .hero__bg::after { background: linear-gradient(180deg, rgba(246, 247, 251, .72) 0%, rgba(246, 247, 251, .55) 55%, var(--bg) 100%); }
 }
-@media (prefers-reduced-motion: reduce) { .hero__bg video { display: none; } .hero__bg { background: url("../video/hero-poster.jpg") 50% 48% / cover; } }
+/* vidéo de fond toujours visible et en lecture (demande : jamais en pause) */
 
 
 /* texte du haut de page lisible sur la vidéo sans la blanchir davantage */
@@ -797,3 +797,5 @@ body.album-on .album { inset: var(--nav-h) 0 0; }
 .h3-link .h2-arrow { display: inline-block; font-size: .7em; vertical-align: middle; color: #2a2ce2; transition: transform .25s var(--ease); }
 .h3-link:hover { color: #2a2ce2; }
 .h3-link:hover .h2-arrow { transform: translateX(6px); }
+#hero-video::-webkit-media-controls, #hero-video::-webkit-media-controls-start-playback-button, #hero-video::-webkit-media-controls-panel { display: none !important; -webkit-appearance: none; }
+#hero-video { pointer-events: none; }
